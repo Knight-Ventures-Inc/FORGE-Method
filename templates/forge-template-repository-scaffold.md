@@ -2,7 +2,7 @@
 
 **The Canonical Directory Structure for FORGE-Governed Projects**
 
-**Version:** 1.0  
+**Version:** 1.1
 **Status:** First-Class Artifact  
 **Based On:** Vantage DD project (ground-truth validation by CC)
 
@@ -13,6 +13,26 @@
 Every FORGE project needs a consistent repository structure that enables fast context recovery and boring execution.
 
 This template defines the **canonical scaffold** — the directory tree, required files, and initialization sequence that Quality Gate (CC) uses to instantiate new projects.
+
+---
+
+## Quick Start: FORGE Starter Kit
+
+For instant FORGE alignment, use the **FORGE Starter Kit** (`starter-kit/`):
+
+```bash
+# Copy starter-kit files to your new project
+cp FORGE-Method/starter-kit/CLAUDE.md your-project/
+cp -r FORGE-Method/starter-kit/.cursor your-project/
+```
+
+The starter-kit includes:
+- `CLAUDE.md` — Pre-configured project identity template
+- `.cursor/rules/` — Role-specific Cursor rules (SD, CP, CC)
+- `chatgpt/` — Jordan (Strategist) setup for ChatGPT Projects
+- `claude_ai/` — CP and CC setup for Claude.ai Projects
+
+See `starter-kit/README.md` for complete setup instructions.
 
 ---
 
@@ -69,7 +89,9 @@ Remove the banner only when:
 [project-codename]/
 ├── .cursor/
 │   └── rules/
-│       └── 00-forge-sd.mdc              # [UNIVERSAL] FORGE-SD operating rules
+│       ├── forge-sd.mdc                 # [UNIVERSAL] Implementation Engine rules
+│       ├── forge-cp.mdc                 # [UNIVERSAL] Spec Author rules
+│       └── forge-cc.mdc                 # [UNIVERSAL] Quality Gate rules
 ├── .github/
 │   ├── PULL_REQUEST_TEMPLATE.md         # [UNIVERSAL] PR format
 │   └── workflows/                       # [CONTEXTUAL] CI/CD if needed
@@ -147,7 +169,7 @@ Remove the banner only when:
 | `docs/constitution/*.md` | Authoritative specs | CP (placed by CC) | Refine → Govern |
 | `docs/adr/README.md` | ADR index and guidance | CC | Instantiation |
 | `docs/adr/adr-template.md` | ADR format | CC | Instantiation |
-| `.cursor/rules/00-forge-sd.mdc` | Cursor operating rules | CC | Instantiation |
+| `.cursor/rules/forge-*.mdc` | Role-specific Cursor rules | CC | Instantiation (from starter-kit) |
 | `.github/PULL_REQUEST_TEMPLATE.md` | PR format | CC | Instantiation |
 | `ai_prompts/templates/*.md` | Task brief/handoff templates | CC | Instantiation |
 
@@ -192,19 +214,25 @@ These patterns caused friction in Vantage and are explicitly disallowed:
 
 ## Cursor Rules Structure
 
-FORGE projects use numbered Cursor rule files for layered configuration:
+FORGE projects use role-specific Cursor rule files. Copy from `starter-kit/.cursor/rules/`:
 
 ```
 .cursor/rules/
-├── 00-forge-sd.mdc      # [UNIVERSAL] FORGE-SD operating model (immutable)
+├── forge-sd.mdc         # [UNIVERSAL] Implementation Engine rules
+├── forge-cp.mdc         # [UNIVERSAL] Spec Author rules (if using Cursor for specs)
+├── forge-cc.mdc         # [UNIVERSAL] Quality Gate rules
 ├── 10-project.mdc       # [CONTEXTUAL] Project conventions, stack, code style
 ├── 20-security.mdc      # [CONTEXTUAL] Auth, RLS, permissions (if applicable)
 ├── 30-ui.mdc            # [CONTEXTUAL] UI constraints (if applicable)
 └── ...                  # Additional numbered rules as needed
 ```
 
-**Numbering Convention:**
-- `00-` — FORGE methodology (do not modify)
+**Role Files (from starter-kit):**
+- `forge-sd.mdc` — Implementation Engine operating rules
+- `forge-cp.mdc` — Spec Author operating rules
+- `forge-cc.mdc` — Quality Gate operating rules
+
+**Numbered Files (project-specific):**
 - `10-` — Project-specific conventions
 - `20-` — Security and auth rules
 - `30-` — UI and styling rules
@@ -267,7 +295,7 @@ touch reports/.gitkeep
 | `docs/constitution/*.md` | Placeholder files (replaced during Refine) |
 | `docs/adr/README.md` | ADR index template |
 | `docs/adr/adr-template.md` | ADR format template |
-| `.cursor/rules/00-forge-sd.mdc` | FORGE-SD rules template |
+| `.cursor/rules/forge-*.mdc` | Role-specific rules from `starter-kit/.cursor/rules/` |
 | `.github/PULL_REQUEST_TEMPLATE.md` | PR template |
 | `ai_prompts/templates/task-brief-template.md` | Task Brief template |
 | `ai_prompts/templates/handoff-template.md` | Handoff template |
@@ -378,7 +406,7 @@ Use this checklist when instantiating a new FORGE project:
 - [ ] docs/ops/state.md created
 - [ ] docs/constitution/README.md created
 - [ ] docs/adr/README.md and template created
-- [ ] .cursor/rules/00-forge-sd.mdc created
+- [ ] .cursor/rules/forge-*.mdc files copied from starter-kit
 - [ ] .github/PULL_REQUEST_TEMPLATE.md created
 - [ ] ai_prompts/templates/ populated
 
@@ -408,6 +436,7 @@ For the FORGE canon repository structure, see FORGE Governance.
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-01-06 | Initial template based on Vantage ground-truth (CC) + refinements (Jordan) |
+| 1.1 | 2026-01-07 | Added starter-kit reference; updated Cursor rules to role-specific files |
 
 ---
 

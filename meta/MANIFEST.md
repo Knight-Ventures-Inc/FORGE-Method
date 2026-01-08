@@ -1,6 +1,6 @@
 # FORGE Method - Document Manifest
 
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-01-07
 **Purpose:** Canonical index of all FORGE methodology documents
 
@@ -20,6 +20,7 @@ FORGE-Method/
 +-- profiles/         # Execution profiles (domain-specific)
 +-- agents/           # Agent-specific operating guides
 +-- templates/        # First-class artifact templates
++-- starter-kit/      # Ready-to-use configuration files
 +-- archive/          # Historical and development artifacts
 +-- meta/             # Repository control documents
 +-- incoming/         # Original downloaded artifacts (read-only snapshot)
@@ -69,6 +70,25 @@ FORGE-Method/
 | `templates/forge-template-repository-scaffold.md` | Repository structure specification | 1.0 | **[FORGE-SD]** |
 | `templates/forge-template-cp-handoff-packet.md` | CP handoff packet template | 1.0 | **[SITUATIONAL]** |
 | `templates/forge-templates.md` | Collection of operational templates | 1.1 | **[UNIVERSAL]** |
+
+---
+
+## Starter Kit
+
+Ready-to-use configuration files for instant FORGE alignment in new projects.
+
+| File | Purpose | Classification |
+|------|---------|----------------|
+| `starter-kit/README.md` | Setup instructions | **[UNIVERSAL]** |
+| `starter-kit/CLAUDE.md` | Project identity template | **[UNIVERSAL]** |
+| `starter-kit/.cursor/rules/forge-sd.mdc` | Implementation Engine rules | **[FORGE-SD]** |
+| `starter-kit/.cursor/rules/forge-cp.mdc` | Spec Author rules | **[FORGE-SD]** |
+| `starter-kit/.cursor/rules/forge-cc.mdc` | Quality Gate rules | **[FORGE-SD]** |
+| `starter-kit/chatgpt/PROJECT_SETUP.md` | ChatGPT/Jordan setup guide | **[SITUATIONAL]** |
+| `starter-kit/chatgpt/custom-instructions-jordan.md` | Jordan custom instructions | **[SITUATIONAL]** |
+| `starter-kit/claude_ai/PROJECT_SETUP.md` | Claude.ai setup guide | **[SITUATIONAL]** |
+| `starter-kit/claude_ai/custom-instructions-cp.md` | CP custom instructions | **[SITUATIONAL]** |
+| `starter-kit/claude_ai/custom-instructions-cc.md` | CC custom instructions | **[SITUATIONAL]** |
 
 ---
 
@@ -129,10 +149,11 @@ FORGE-Method/
 | Profiles | 1 |
 | Agents | 3 |
 | Templates | 7 |
+| Starter Kit | 10 |
 | Archive | 10 |
 | Meta | 3 |
-| **Total Canonical** | **15** |
-| **Total (including archive)** | **28** |
+| **Total Canonical** | **25** |
+| **Total (including archive)** | **38** |
 
 ---
 
@@ -141,6 +162,7 @@ FORGE-Method/
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-01-07 | Initial manifest after consolidation |
+| 1.1 | 2026-01-07 | Added starter-kit section with 10 files |
 
 ---
 
