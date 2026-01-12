@@ -113,6 +113,10 @@ Remove the banner only when:
 │   │   ├── data-model.md                # L3: Schema
 │   │   ├── api-contract.md              # L3: Endpoints
 │   │   └── security-policies.md         # L3: Auth, RLS, permissions
+│   ├── parking-lot/                     # [UNIVERSAL] Issues and ideas for later
+│   │   ├── README.md                    # Parking lot protocol
+│   │   ├── known-issues.md              # Bugs, tech debt, security concerns
+│   │   └── future-work.md               # Feature ideas, enhancements
 │   ├── adr/                             # [UNIVERSAL] Architecture decisions
 │   │   ├── README.md
 │   │   ├── adr-template.md
@@ -169,6 +173,9 @@ Remove the banner only when:
 | `docs/constitution/*.md` | Authoritative specs | CP (placed by CC) | Refine → Govern |
 | `docs/adr/README.md` | ADR index and guidance | CC | Instantiation |
 | `docs/adr/adr-template.md` | ADR format | CC | Instantiation |
+| `docs/parking-lot/README.md` | Parking lot protocol | CC | Instantiation |
+| `docs/parking-lot/known-issues.md` | Bugs, tech debt, security concerns | CC | Instantiation |
+| `docs/parking-lot/future-work.md` | Feature ideas, enhancements | CC | Instantiation |
 | `.cursor/rules/forge-*.mdc` | Role-specific Cursor rules | CC | Instantiation (from starter-kit) |
 | `.github/PULL_REQUEST_TEMPLATE.md` | PR format | CC | Instantiation |
 | `ai_prompts/templates/*.md` | Task brief/handoff templates | CC | Instantiation |
@@ -261,7 +268,7 @@ Skip if not using a framework scaffolder.
 mkdir -p .cursor/rules
 mkdir -p .github/workflows
 mkdir -p ai_prompts/{active,completed,templates}
-mkdir -p docs/{constitution,adr,ops}
+mkdir -p docs/{constitution,parking-lot,adr,ops}
 mkdir -p reports
 
 # Create .gitkeep files
@@ -295,6 +302,9 @@ touch reports/.gitkeep
 | `docs/constitution/*.md` | Placeholder files (replaced during Refine) |
 | `docs/adr/README.md` | ADR index template |
 | `docs/adr/adr-template.md` | ADR format template |
+| `docs/parking-lot/README.md` | Parking lot protocol template |
+| `docs/parking-lot/known-issues.md` | Known issues template |
+| `docs/parking-lot/future-work.md` | Future work template |
 | `.cursor/rules/forge-*.mdc` | Role-specific rules from `starter-kit/.cursor/rules/` |
 | `.github/PULL_REQUEST_TEMPLATE.md` | PR template |
 | `ai_prompts/templates/task-brief-template.md` | Task Brief template |
@@ -406,6 +416,7 @@ Use this checklist when instantiating a new FORGE project:
 - [ ] docs/ops/state.md created
 - [ ] docs/constitution/README.md created
 - [ ] docs/adr/README.md and template created
+- [ ] docs/parking-lot/ files created (README.md, known-issues.md, future-work.md)
 - [ ] .cursor/rules/forge-*.mdc files copied from starter-kit
 - [ ] .github/PULL_REQUEST_TEMPLATE.md created
 - [ ] ai_prompts/templates/ populated

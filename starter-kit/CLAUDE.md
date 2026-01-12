@@ -134,6 +134,54 @@ pnpm db:migrate   # Apply migrations
 | Current task | `ai_prompts/active/` |
 | Completed tasks | `ai_prompts/completed/` |
 | Task templates | `ai_prompts/templates/` |
+| Parking lot | `docs/parking-lot/` |
+
+---
+
+## Parking Lot Protocol
+
+The parking lot (`docs/parking-lot/`) captures issues and ideas discovered during development that shouldn't derail current PR scope.
+
+### Files
+
+| File | What Goes Here |
+|------|----------------|
+| `known-issues.md` | Bugs, broken things, security risks, technical debt |
+| `future-work.md` | Feature ideas, enhancements, optimizations, nice-to-haves |
+
+### When to Log
+
+Log to parking lot **immediately** when you discover:
+- A bug unrelated to your current PR
+- A missing feature that would be nice but isn't in scope
+- Technical debt worth addressing later
+- A security concern that needs follow-up
+- An optimization opportunity
+- Ideas from debugging that could improve the system
+
+### Entry Format
+
+```markdown
+## [YYYY-MM-DD] Short Title
+
+**Source:** PR-XX or context | **Severity:** Low/Medium/High | **Effort:** X hrs
+
+One-paragraph description of the issue or idea.
+
+**Workaround:** (if applicable for known-issues)
+
+**Fix:** Proposed solution or next steps.
+```
+
+### Workflow
+
+1. **Discover** an issue or idea during PR work
+2. **Log immediately** to the appropriate parking-lot file
+3. **Continue** with current PR scope
+4. **Review** parking lot when planning future PRs
+5. **Graduate** items to GitHub Issues when prioritized for a specific PR
+
+**Golden Rule:** Don't let discoveries get lost in conversation history. If it's not in scope, park it.
 
 ---
 

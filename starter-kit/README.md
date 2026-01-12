@@ -18,6 +18,7 @@ This folder contains ready-to-use configuration files that make any new reposito
 | `.cursor/rules/forge-sd.mdc` | Cursor rules for Software Dev profile |
 | `.cursor/rules/forge-cp.mdc` | Cursor rules for Spec Author behavior |
 | `.cursor/rules/forge-cc.mdc` | Cursor rules for Quality Gate behavior |
+| `docs/parking-lot/` | Template for issues/ideas discovered during development |
 | `chatgpt/PROJECT_SETUP.md` | How to create Jordan (Strategist) project |
 | `chatgpt/custom-instructions-jordan.md` | Jordan's custom instructions |
 | `claude_ai/PROJECT_SETUP.md` | How to create CP and CC projects |
@@ -32,8 +33,9 @@ This folder contains ready-to-use configuration files that make any new reposito
 
 1. Copy `CLAUDE.md` to your project root
 2. Copy `.cursor/rules/` to your project's `.cursor/` directory
-3. Edit `CLAUDE.md` to fill in project-specific sections (marked with `[CUSTOMIZE]`)
-4. Create ChatGPT and Claude.ai projects per the setup docs
+3. Copy `docs/parking-lot/` to your project's `docs/` directory
+4. Edit `CLAUDE.md` to fill in project-specific sections (marked with `[CUSTOMIZE]`)
+5. Create ChatGPT and Claude.ai projects per the setup docs
 
 ### For Agent Setup
 
