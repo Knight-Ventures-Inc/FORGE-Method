@@ -6,6 +6,18 @@
 
 ---
 
+## Quick Navigation
+
+| You want to... | Go to... |
+|----------------|----------|
+| **Understand the FORGE methodology** | You're in the right place (this repo) |
+| **Start a new FORGE project** | Clone [forge-project-template](https://github.com/Knight-Ventures-Inc/forge-project-template) |
+| **Spawn projects via Jordan/ChatGPT** | See [forge-genesis-vault](https://github.com/Knight-Ventures-Inc/forge-genesis-vault) |
+
+**This repo is the canon.** To actually *use* FORGE on a project, clone the [FORGE Project Template](https://github.com/Knight-Ventures-Inc/forge-project-template) — it's pre-wired with all the files and structure you need.
+
+---
+
 ## What FORGE™ Is
 
 FORGE™ is an execution discipline — not a framework, not a library, not a product. It's a methodology for transforming intent into working software through five disciplined macro-steps, with human judgment at every decision point.

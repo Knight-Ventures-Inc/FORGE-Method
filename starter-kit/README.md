@@ -4,6 +4,17 @@
 
 ---
 
+## Starter Kit vs Project Template
+
+| This is... | Use when... |
+|------------|-------------|
+| **Starter Kit** (you're here) | Reference assets — copy individual files to customize existing repos |
+| **[forge-project-template](https://github.com/Knight-Ventures-Inc/forge-project-template)** | Clone the whole repo to start a new FORGE project from scratch |
+
+Most users should **clone forge-project-template**. This starter-kit is the canonical source these templates are derived from.
+
+---
+
 ## What This Is
 
 This folder contains ready-to-use configuration files that make any new repository instantly FORGE-aligned. These are the canonical starting points - copy them, customize the marked sections, and you're operational.
