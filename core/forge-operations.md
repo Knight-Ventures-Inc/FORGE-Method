@@ -370,6 +370,94 @@ If interrupted mid-cycle:
 
 ---
 
+## Part 5.5: Parking Lot Protocol
+
+### 5.5.1 Purpose
+
+During execution, agents frequently discover issues and ideas that are valuable but out of scope for the current PR. Without a capture mechanism, these discoveries evaporate into conversation history — never to be recovered.
+
+The Parking Lot Protocol prevents this context decay by providing durable, file-based storage for out-of-scope discoveries.
+
+**Core Principle:** Conversation ≠ Storage. If it's not in a file, it doesn't exist.
+
+**[UNIVERSAL]**
+
+### 5.5.2 Required Structure
+
+Every FORGE project includes:
+
+```
+docs/parking-lot/
+├── README.md          # Protocol explanation
+├── known-issues.md    # Bugs, tech debt, security concerns
+└── future-work.md     # Feature ideas, enhancements, optimizations
+```
+
+**File Purposes:**
+
+| File | What Goes Here |
+|------|----------------|
+| `known-issues.md` | Bugs, broken things, security risks, technical debt |
+| `future-work.md` | Feature ideas, enhancements, optimizations, nice-to-haves |
+
+**[UNIVERSAL]**
+
+### 5.5.3 When to Log
+
+Log to parking lot **immediately** when you discover:
+- A bug unrelated to your current PR
+- A missing feature that would be nice but isn't in scope
+- Technical debt worth addressing later
+- A security concern that needs follow-up
+- An optimization opportunity
+- Ideas from debugging that could improve the system
+
+**Golden Rule:** Don't let discoveries get lost in conversation history. If it's not in scope, park it.
+
+**[UNIVERSAL]**
+
+### 5.5.4 Entry Format
+
+```markdown
+## [YYYY-MM-DD] Short Title
+
+**Source:** PR-XX or context | **Severity:** Low/Medium/High | **Effort:** X hrs
+
+One-paragraph description of the issue or idea.
+
+**Workaround:** (if applicable for known-issues)
+
+**Fix:** Proposed solution or next steps.
+```
+
+**[UNIVERSAL — entry schema may evolve]**
+
+### 5.5.5 Parking Lot Lifecycle
+
+```
+Discover → Park → Continue → Review → Graduate
+```
+
+1. **Discover** — Find issue or idea during PR work
+2. **Park** — Log immediately to appropriate file
+3. **Continue** — Return to current PR scope without derailing
+4. **Review** — Human reviews parking lot during planning
+5. **Graduate** — Items move to GitHub Issues when prioritized
+
+**[UNIVERSAL — graduation target is CONTEXTUAL]**
+
+### 5.5.6 Governance
+
+- **Authored by:** Quality Gate or Implementation Engine (during execution)
+- **Reviewed by:** Human Lead (during sprint planning)
+- **Graduated:** Items move to GitHub Issues or build plan when prioritized
+
+Parking lot items do NOT automatically become work. They are candidates for future work, subject to Human approval.
+
+**[UNIVERSAL]**
+
+---
+
 ## Part 6: Canonical Truth Resolution
 
 ### 6.1 The Hierarchy
