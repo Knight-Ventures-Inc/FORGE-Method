@@ -8,7 +8,7 @@ Format: `[YYYY-MM-DD] Title` with summary, files touched, and impact scope.
 
 ---
 
-## [2025-01-15] Standardize project-architect template with retrofit support
+## [2026-01-15] Standardize project-architect template with retrofit support
 
 **Summary:** Created canonical project-architect template with standardized output contracts, lane separation rules, and retrofit capability for existing repos.
 
@@ -31,7 +31,7 @@ Format: `[YYYY-MM-DD] Title` with summary, files touched, and impact scope.
 
 ---
 
-## [2025-01-15] Add forge-maintainer global agent
+## [2026-01-15] Add forge-maintainer global agent
 
 **Summary:** Introduced forge-maintainer agent for maintaining/upgrading existing FORGE repos with controlled cross-repo rollouts.
 

@@ -2,7 +2,7 @@
 
 > **DEPRECATED:** This template has been superseded.
 > **New Canonical Location:** `templates/agents/project-architect.template.md`
-> **Migration Date:** 2025-01-15
+> **Migration Date:** 2026-01-15
 >
 > This file is preserved for backward compatibility. All new projects and retrofits
 > should use the canonical template at `templates/agents/project-architect.template.md`.
