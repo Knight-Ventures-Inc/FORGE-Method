@@ -1,5 +1,14 @@
 # Project Architect Agent Template
 
+> **DEPRECATED:** This template has been superseded.
+> **New Canonical Location:** `templates/agents/project-architect.template.md`
+> **Migration Date:** 2025-01-15
+>
+> This file is preserved for backward compatibility. All new projects and retrofits
+> should use the canonical template at `templates/agents/project-architect.template.md`.
+
+---
+
 **Used by the global forge-architect to create project-specific agents**
 
 The content below should be placed in `[project]/.claude/agents/project-architect.md` with project-specific values filled in.
