@@ -249,6 +249,34 @@ Examples must:
 
 ---
 
+## Extensions
+
+### What Are Extensions?
+
+Extensions are optional capabilities that projects may adopt. They are documented in `docs/extensions/` and follow these rules:
+
+1. **Always Optional** — No extension is required for FORGE compliance
+2. **Self-Contained** — Each extension has clear boundaries and adoption criteria
+3. **Additive Only** — Extensions enhance FORGE; they never override core principles
+4. **Versioned Independently** — Extensions have their own version history
+
+### Extension Governance
+
+| Aspect | Rule |
+|--------|------|
+| Creation | Requires demonstrated need across multiple projects |
+| Approval | Knight Ventures steward approval required |
+| Documentation | Must include: overview, boundaries, adoption criteria, security model |
+| Classification | Extensions are always **[CONTEXTUAL]** — not universal requirements |
+
+### Current Extensions
+
+| Extension | Status | Added |
+|-----------|--------|-------|
+| [FORGE AI Interface (FAI)](../docs/extensions/fai-overview.md) | Available | 2026-01-16 |
+
+---
+
 ## Deprecation Policy
 
 When content becomes outdated:
@@ -299,6 +327,7 @@ FORGE governance is successful if:
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-01-04 | Initial governance framework |
+| 1.1 | 2026-01-16 | Added Extensions section; documented FORGE AI Interface (FAI) as first extension |
 
 ---
 

@@ -8,6 +8,30 @@ Format: `[YYYY-MM-DD] Title` with summary, files touched, and impact scope.
 
 ---
 
+## [2026-01-16] Add FORGE AI Interface (FAI) extension
+
+**Summary:** Introduced FAI as the first optional FORGE extension, providing a first-class AI interface layer for projects that need user-facing Q&A, action execution, feedback capture, and multimodal intake.
+
+**Files touched:**
+- `docs/extensions/README.md` (created) — Extensions index
+- `docs/extensions/fai-overview.md` (created) — FAI capability definition
+- `core/forge-governance.md` (modified) — Added Extensions section
+- `docs/agents/README.md` (modified) — Added FAI reference
+- `CHANGELOG.md` (updated)
+
+**Impact:** Public canon — new optional extension capability.
+
+**Details:**
+- FAI is explicitly OPTIONAL — no project requires it for FORGE compliance
+- FAI is an interface layer, not an autonomous agent
+- Four capability tiers: Read-Only Q&A, Action Execution, Feedback Capture, Multimodal Intake
+- Hard boundaries: no code modification, no PR creation, no auto-merge
+- GitHub Apps required (no PATs); RBAC mirroring with confirm-before-act
+- Integration points: docs/constitution/FAI.md, parking-lot, task briefs
+- Research basis: ~/kv-projects/FORGE-Method/research/ai-interface/
+
+---
+
 ## [2026-01-15] Standardize project-architect template with retrofit support
 
 **Summary:** Created canonical project-architect template with standardized output contracts, lane separation rules, and retrofit capability for existing repos.
