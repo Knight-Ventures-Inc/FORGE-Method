@@ -8,6 +8,47 @@ Format: `[YYYY-MM-DD] Title` with summary, files touched, and impact scope.
 
 ---
 
+## [2026-02-03] Product Strategist Agent Role (v1.2.0)
+
+**Summary:** Introduced the Product Strategist as the canonical agent role for the Frame (F) phase. This role formalizes inbox-driven product framing with professional PM-level Product Intent Packets.
+
+**Files touched:**
+- `agents/forge-product-strategist-guide.md` (created) — Complete operating guide for Product Strategist role
+- `agents/forge-agent-roles-handoffs.md` (modified) — Updated Frame phase owner to Product Strategist
+- `CHANGELOG.md` (updated)
+
+**Impact:** Public canon — defines canonical Frame (F) phase implementation for all FORGE projects.
+
+**Details:**
+
+### Added
+- Product Strategist operating guide (`agents/forge-product-strategist-guide.md`)
+- Inbox-driven workflow documentation
+- Product Intent Packet specification (8 required + 3 optional artifacts)
+- Active Interviewing Protocol (max 3 Q&A rounds)
+- Coherence Checklist for stop condition validation
+- Domain extension patterns (software, books, real estate, coaching)
+
+### Changed
+- Frame phase owner: Product Strategist (role-based, lane-pure)
+- Frame deliverable: Product Intent Packet (replaces Frame Artifact)
+- Handoff protocol: Human Lead always routes (no agent-to-agent)
+
+### Key Concepts
+- **Product Intent Packet:** Structured Frame-phase output with 8 required artifacts
+- **Inbox-driven workflow:** Input at `inbox/00_drop/`, output at `inbox/10_product-intent/`
+- **Active Interviewing:** Bounded iteration (max 3 rounds) for discovery
+- **Coherence Checklist:** Binary stop condition for packet completeness
+- **Lane discipline:** Frame only — no architecture, no implementation
+
+### Quality Standard
+Product Intent Packets must meet professional PM-level quality:
+- Usable by external development teams
+- Clear enough for stakeholder review
+- Complete enough for technical planning
+
+---
+
 ## [2026-01-24] Platform-Level Stakeholder Model (v1.1.0)
 
 **Summary:** Clarified the platform vs tenant plane distinction for stakeholders in the FORGE identity model. Stakeholder is now explicitly defined as a platform-level actor, not a tenant role.

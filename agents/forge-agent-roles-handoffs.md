@@ -15,7 +15,7 @@ FORGE defines five standard roles. In Knight Ventures projects, these map to spe
 | Role | Agent | Primary Phase | Function |
 |------|-------|---------------|----------|
 | **Human Lead** | Leo | All phases | Direction, greenlight, final authority |
-| **Strategist** | Jordan (ChatGPT) | Frame | Ideation, validation, Frame Artifact |
+| **Strategist** | Product Strategist | Frame | Product framing, Product Intent Packet |
 | **Architect** | project-architect (local) | Refine | Constitutional documents, planning |
 | **Quality Gate** | CC (Claude Code) | Execute | Verification, PRs, build plan |
 | **Implementation Engine** | Cursor | Execute | Code production per task briefs |
@@ -70,8 +70,8 @@ Remote Extension (when Leo is away from iMac Pro):
 
 | Phase | Primary Owner | Contributors | Deliverables |
 |-------|---------------|--------------|--------------|
-| **Frame** | Jordan | Leo, Perplexity | Frame Artifact |
-| **Orchestrate** | Leo | Jordan, project-architect | Agent assignments, Project Identity |
+| **Frame** | Product Strategist | Leo, Perplexity | Product Intent Packet |
+| **Orchestrate** | Leo | Product Strategist, project-architect | Agent assignments, Project Identity |
 | **Refine** | project-architect | Leo | Constitutional documents |
 | **Govern** | Leo | CC | Quality gates, escalation rules |
 | **Execute** | CC | Cursor, Leo | Working deliverable |
@@ -80,13 +80,13 @@ Remote Extension (when Leo is away from iMac Pro):
 
 ## Handoff Protocols
 
-### Jordan → project-architect (Frame → Refine)
+### Product Strategist → project-architect (Frame → Refine)
 
-**Trigger:** Leo approves Frame Artifact and says "ready for architect" or equivalent
+**Trigger:** Human Lead approves Product Intent Packet and routes to architect
 
-**Jordan Delivers:**
-1. **Frame Artifact** — Complete, versioned, Leo-approved
-2. **Architect Briefing Document** containing:
+**Product Strategist Delivers:**
+1. **Product Intent Packet** — Complete at `inbox/10_product-intent/<slug>/`
+2. **Packet contains** (8 required artifacts):
    - Project name and type
    - Constitutional documents needed
    - Key context (decisions, constraints, risks)
