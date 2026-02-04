@@ -122,7 +122,7 @@ pnpm db:seed      # Seed development data
 +-- docs/
 |   +-- constitution/     # [Authoritative specs - READ ONLY]
 |   +-- build-plan.md     # [Execution state - CC maintains]
-+-- ai_prompts/
++-- inbox/
 |   +-- active/           # [Current task briefs]
 |   +-- completed/        # [Archived briefs]
 |   +-- templates/        # [Reusable templates]
@@ -162,7 +162,7 @@ pnpm db:seed      # Seed development data
 ### If in Execute
 - **Current PR:** [PR-XX]
 - **Build Plan:** `docs/build-plan.md`
-- **Active Brief:** `ai_prompts/active/[current-brief].md`
+- **Active Brief:** `inbox/active/[current-brief].md`
 
 ---
 
@@ -171,7 +171,7 @@ pnpm db:seed      # Seed development data
 1. **Verification sequence runs before every PR** - No exceptions
 2. **Constitutional docs are authoritative** - When in doubt, check the spec
 3. **Small fixes (<5 lines) are okay; large fixes go back** - The 5-line rule
-4. **File-based handoffs** - Everything through `ai_prompts/`, not conversation
+4. **Inbox-driven workflow** - Everything through `inbox/`, not conversation
 5. **Archive before starting** - Each PR archives the previous brief first
 
 ---
@@ -182,7 +182,7 @@ pnpm db:seed      # Seed development data
 1. Read this file (you're doing it)
 2. Check docs/build-plan.md for current state
 3. Run: git log --oneline -5
-4. Check ai_prompts/active/ for current brief
+4. Check inbox/active/ for current brief
 5. Ready to proceed (~90 seconds total)
 ```
 
@@ -192,7 +192,7 @@ pnpm db:seed      # Seed development data
 
 - **Constitutional Docs:** `docs/constitution/`
 - **Build Plan:** `docs/build-plan.md`
-- **Active Briefs:** `ai_prompts/active/`
+- **Active Briefs:** `inbox/active/`
 
 ---
 

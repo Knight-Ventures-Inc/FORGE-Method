@@ -188,7 +188,7 @@ One per project. Quality Gate maintains throughout Execute phase.
 
 ### PR-02: [Name]
 **Objective:** [What this PR accomplishes]
-**Brief:** `ai_prompts/active/pr-02-[slug].md`
+**Brief:** `inbox/active/pr-02-[slug].md`
 **Started:** [YYYY-MM-DD HH:MM]
 **Blockers:** None
 
@@ -272,7 +272,7 @@ Implementation Engine creates after completing task brief. Bridges to Quality Ga
 ## Implementation Complete: PR-[XX] — [Name]
 
 **Completed:** [YYYY-MM-DD HH:MM]
-**Brief Reference:** `ai_prompts/active/pr-[xx]-[slug].md`
+**Brief Reference:** `inbox/active/pr-[xx]-[slug].md`
 
 ---
 
@@ -511,7 +511,7 @@ git log --oneline -5
 - [ ] Verify on correct branch
 
 ### 4. Active Work Check (30 sec)
-- [ ] Check `ai_prompts/active/` for current brief
+- [ ] Check `inbox/active/` for current brief
 - [ ] Read brief if exists
 - [ ] Check for pending handoff
 
@@ -559,7 +559,7 @@ Templates are starting points. Adapt to your context:
 ### Version Control
 
 Templates should be versioned with your project:
-- Store in `ai_prompts/templates/`
+- Store in `inbox/templates/`
 - Update when you learn better patterns
 - Note changes in template headers
 

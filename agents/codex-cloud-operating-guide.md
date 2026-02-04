@@ -40,7 +40,7 @@
 | Analyze code structure | ✅ | Core purpose |
 | Analyze documentation | ✅ | Core purpose |
 | Produce recon reports | ✅ | Output to `docs/recons/` |
-| Create handoff packets | ✅ | Output to `ai_prompts/active/` |
+| Create handoff packets | ✅ | Output to `inbox/20_architecture-plan/` |
 | Commit docs to staging | ⚠️ Opt-in | Requires explicit authorization |
 | Modify source code | ❌ NEVER | Hard constraint |
 | Modify constitutional docs | ❌ NEVER | Hard constraint |
@@ -72,8 +72,7 @@ This creates an audit trail and prevents confusion about session capabilities.
 | Artifact Type | Location | Example |
 |---------------|----------|---------|
 | Recon Report | `docs/recons/` | `2026-01-15-auth-analysis.md` |
-| Handoff Packet | `ai_prompts/active/` | `PACKET-A-feature-x.md` |
-| Archived Packet | `ai_prompts/completed/` | After CC executes |
+| Handoff Packet | `inbox/20_architecture-plan/` | `PACKET-A-feature-x/` |
 
 ---
 

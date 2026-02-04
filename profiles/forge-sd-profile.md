@@ -113,8 +113,8 @@ In FORGE-SD, the **Git repository** is the single source of truth.
 |---------------|----------|-------|
 | Constitutional documents | `docs/constitution/` | CP authors; CC reads |
 | Build state | `docs/build-plan.md` | CC maintains |
-| Task briefs | `ai_prompts/active/` | CC authors |
-| Archived briefs | `ai_prompts/completed/` | CC archives |
+| Task briefs | `inbox/active/` | CC authors |
+| Archived briefs | `inbox/completed/` | CC archives |
 | Application code | `src/` | Cursor implements; CC verifies |
 | Migrations | `supabase/migrations/` | CC generates |
 | Tests | `tests/` | Cursor implements; CC verifies |
@@ -296,7 +296,7 @@ fix/pr-04-login-redirect
 2. [Expected result]
 
 ### Task Brief
-`ai_prompts/completed/pr-XX-[name].md`
+`inbox/completed/pr-XX-[name].md`
 
 ### Related
 - Spec: `docs/constitution/[relevant-doc].md`
@@ -329,7 +329,7 @@ chore(deps): upgrade Next.js to 15.1
 |       +-- project.mdc           # Cursor rules
 +-- .github/
 |   +-- CODEOWNERS
-+-- ai_prompts/
++-- inbox/
 |   +-- active/                   # Current task brief
 |   +-- completed/                # Archived briefs
 |   +-- templates/
@@ -416,7 +416,7 @@ Your role: Execute task briefs exactly as specified. Produce code. Hand off to Q
 ## Before Any Work
 
 1. Read `CLAUDE.md` in project root
-2. Read the active task brief in `ai_prompts/active/`
+2. Read the active task brief in `inbox/active/`
 3. Understand what you are building before writing code
 
 ## During Implementation
@@ -510,7 +510,7 @@ If CC identifies issues:
 | Constitutional document hierarchy | **Canon** |
 | The FORGE Cycle (16-step loop) | **Canon** |
 | Human greenlight requirement | **Canon** |
-| File-based handoffs | **Canon** |
+| Inbox-driven workflow | **Canon** |
 | 5-line rule | **Canon** |
 | Fix / Escalate / Abandon heuristics | **Canon** |
 
@@ -561,7 +561,7 @@ START OF SESSION:
 1. Read CLAUDE.md
 2. Check docs/build-plan.md
 3. git log --oneline -5
-4. Check ai_prompts/active/
+4. Check inbox/active/
 
 EVERY PR:
 1. Archive previous brief -> completed/
@@ -583,7 +583,7 @@ pnpm typecheck && pnpm lint && pnpm test:run && pnpm build
 ```
 START OF TASK:
 1. Read CLAUDE.md
-2. Read ai_prompts/active/[current-brief].md
+2. Read inbox/active/[current-brief].md
 3. Reference docs/constitution/ as needed
 
 DURING IMPLEMENTATION:

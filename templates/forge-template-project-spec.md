@@ -46,7 +46,7 @@ CC does not interpret or extend this specification. If something is ambiguous, C
 +-- .github/
 |   +-- PULL_REQUEST_TEMPLATE.md   # PR template
 |
-+-- ai_prompts/
++-- inbox/
 |   +-- active/                    # Current task briefs (one at a time)
 |   |   +-- .gitkeep
 |   +-- completed/                 # Archived briefs (one per merged PR)
@@ -228,7 +228,7 @@ supabase/.temp/
 
 **Key behaviors:**
 - Read `CLAUDE.md` before any work
-- Follow task briefs in `ai_prompts/active/`
+- Follow task briefs in `inbox/active/`
 - Never modify `docs/constitution/` without approval
 - Run Sacred Four before claiming completion
 
@@ -236,7 +236,7 @@ supabase/.temp/
 
 ### AI Prompts Directory
 
-#### `ai_prompts/templates/task-brief-template.md`
+#### `inbox/templates/task-brief-template.md`
 **Purpose:** Template for task briefs written by CC.
 
 **Content:** Copy from FORGE Operations Manual or forge-templates.md.
@@ -339,7 +339,7 @@ All constitutional documents start as **placeholders**. CP (Spec Author) populat
 
 ## Task Brief
 
-[Link to ai_prompts/active/pr-XX-name.md or ai_prompts/completed/pr-XX-name.md]
+[Link to inbox/active/pr-XX-name.md or inbox/completed/pr-XX-name.md]
 
 ## Changes
 
@@ -406,7 +406,7 @@ Layer FORGE-specific directories onto the framework scaffold:
 ```bash
 mkdir -p .cursor/rules
 mkdir -p .github
-mkdir -p ai_prompts/{active,completed,templates}
+mkdir -p inbox/{active,completed,templates}
 mkdir -p docs/{constitution,decisions}
 mkdir -p supabase/{migrations,seed}
 # Note: src/ and tests/ likely already exist from framework
@@ -414,8 +414,8 @@ mkdir -p supabase/{migrations,seed}
 
 ### Step 5: Create Placeholder Files
 ```bash
-touch ai_prompts/active/.gitkeep
-touch ai_prompts/completed/.gitkeep
+touch inbox/active/.gitkeep
+touch inbox/completed/.gitkeep
 touch docs/decisions/.gitkeep
 touch supabase/migrations/.gitkeep
 touch supabase/seed/.gitkeep
@@ -430,7 +430,7 @@ touch supabase/seed/.gitkeep
 - Write `.github/PULL_REQUEST_TEMPLATE.md` from template above
 - Write `docs/build-plan.md` from template above
 - Write placeholder files in `docs/constitution/`
-- Copy task brief template to `ai_prompts/templates/`
+- Copy task brief template to `inbox/templates/`
 
 ### Step 7: Place Constitutional Documents
 - Human provides constitutional documents (from CP)

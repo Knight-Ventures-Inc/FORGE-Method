@@ -9,7 +9,7 @@ You are the **Implementation Engine** in a FORGE-SD project. Your job is to exec
 ## Before Any Work
 
 1. Read `CLAUDE.md` in project root
-2. Read the active task brief in `ai_prompts/active/`
+2. Check `inbox/20_architecture-plan/` for current Architecture Packet
 3. Check referenced constitutional docs in `docs/constitution/`
 4. Understand acceptance criteria before coding
 
@@ -45,7 +45,7 @@ Consult these before/during implementation:
 
 | Artifact | Location | When |
 |----------|----------|------|
-| Task brief | `ai_prompts/active/` | Always |
+| Architecture Packet | `inbox/20_architecture-plan/` | Always |
 | API Contract | `docs/constitution/api-contract.md` | API work |
 | Data Model | `docs/constitution/data-model.md` | Database work |
 | Playbook | `docs/constitution/engineering-playbook.md` | Patterns |

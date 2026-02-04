@@ -12,7 +12,7 @@ Every session:
 1. Read `CLAUDE.md` (30 sec)
 2. Check `docs/build-plan.md` for current PR (10 sec)
 3. Run `git log --oneline -5` (10 sec)
-4. Check `ai_prompts/active/` for current brief (30 sec)
+4. Check `inbox/` for pending work (30 sec)
 5. Ready to proceed (~90 seconds)
 
 ---
@@ -21,13 +21,12 @@ Every session:
 
 - Run verification sequence (Sacred Four)
 - Create feature/fix branches
-- Write task briefs in `ai_prompts/active/`
-- Archive briefs to `ai_prompts/completed/`
-- Maintain `docs/build-plan.md`
+- Process Architecture Packets from `inbox/20_architecture-plan/`
+- Maintain `docs/build-plan.md` and `docs/ops/state.md`
 - Create PRs with descriptions
 - Fix issues < 5 lines
 - Generate SQL migrations from data-model.md
-- Escalate blockers to Leo
+- Escalate blockers to Human Lead
 
 ---
 
@@ -49,15 +48,14 @@ Each PR cycle:
 ```
 1. Pull latest main
 2. Create branch: feat/pr-XX-name or fix/pr-XX-name
-3. Archive previous brief -> completed/
-4. Update build-plan (previous -> done, current -> in_progress)
-5. Write task brief -> active/
-6. Hand to Cursor via Leo
-7. Receive implementation
-8. Run Sacred Four
-9. Fix (<5 lines) or return (>5 lines)
-10. Create PR
-11. Notify Leo for merge
+3. Check inbox/20_architecture-plan/ for current Architecture Packet
+4. Update build-plan and ops/state.md (current -> in_progress)
+5. Hand to Cursor for implementation
+6. Receive implementation
+7. Run Sacred Four
+8. Fix (<5 lines) or return (>5 lines)
+9. Create PR
+10. Notify Human Lead for merge
 ```
 
 ---
@@ -132,6 +130,9 @@ Status markers:
 ### Summary
 [One paragraph]
 
+### Context
+[Link to Architecture Packet or relevant inbox folder if applicable]
+
 ### Changes
 - [Change 1]
 - [Change 2]
@@ -145,41 +146,21 @@ Status markers:
 ### HAT (Human Acceptance Test)
 1. [Step]
 2. [Expected result]
-
-### Task Brief
-`ai_prompts/completed/pr-XX-name.md`
 ```
 
 ---
 
-## Task Brief Format
+## File Locations Quick Reference
 
-```markdown
-# Task Brief: PR-XX - [Name]
-
-## Objective
-[One sentence]
-
-## Pre-Flight
-- [ ] Previous PR merged
-- [ ] Branch from latest main
-
-## Implementation Steps
-1. [Step]
-2. [Step]
-
-## Acceptance Criteria
-- [ ] [Criterion]
-
-## Files to Create/Modify
-- `path/to/file.ts` - [purpose]
-
-## Do NOT
-- Do not [forbidden thing]
-
-## Reference
-- Spec: `docs/constitution/[doc].md`
-```
+| Need | Location |
+|------|----------|
+| Project identity | `CLAUDE.md` |
+| Constitution | `docs/constitution/` |
+| Inbox (discovery) | `inbox/00_drop/` |
+| Product Intent | `inbox/10_product-intent/` |
+| Architecture Plans | `inbox/20_architecture-plan/` |
+| Operational state | `docs/ops/state.md` |
+| PR sequence | `docs/build-plan.md` |
 
 ---
 

@@ -500,50 +500,42 @@ When sources disagree, higher sources win:
 
 ---
 
-## Part 7: File-Based Handoffs
+## Part 7: Inbox-Driven Workflow
 
 ### 7.1 The Mechanism
 
-FORGE uses file-based handoffs, not conversation-based coordination. This enables async operation.
+FORGE uses an inbox-driven workflow for discovery and planning. Raw ideas flow through structured phases before reaching execution.
 
 **Directory Structure:**
 ```
-ai_prompts/
-├── active/           # Current task brief lives here
-├── completed/        # Archived briefs (one per merged PR)
-└── templates/        # Reusable brief templates
+inbox/
+├── 00_drop/              # Discovery input (human writes here)
+├── 10_product-intent/    # Product Strategist outputs
+└── 20_architecture-plan/ # Project Architect outputs
 ```
 
 **[UNIVERSAL - directory names are CONTEXTUAL]**
 
-### 7.2 The Handoff Flow
+### 7.2 The Workflow
 
 ```
-Quality Gate writes brief → ai_prompts/active/
-Human triggers Implementation Engine
-Implementation Engine reads brief, implements
-Implementation Engine outputs summary
-Human copies summary to Quality Gate session
-Quality Gate pulls code, verifies, creates PR
-Quality Gate archives brief → ai_prompts/completed/
+Human drops discovery materials → inbox/00_drop/
+Product Strategist processes → inbox/10_product-intent/
+Human routes to Project Architect
+Project Architect processes → inbox/20_architecture-plan/
+Human routes to execution agents
 ```
 
-**Key Insight:** The Human bridges Implementation Engine output to Quality Gate via copy-paste. This is the actual handoff mechanism.
+**Key Insight:** Each phase produces a structured packet that the next phase consumes. Human Lead routes between phases.
 
 **[UNIVERSAL]**
 
-### 7.3 Archive-First Pattern
+### 7.3 Packet Preservation
 
-Each new PR cycle starts by archiving the previous:
-
-```
-Commit 1 of PR-N:
-├── Move PR-(N-1) brief to completed/
-├── Update build plan (previous → ✅, current → 🔄)
-└── Then write new task brief
-```
-
-This keeps `active/` clean and creates audit trail.
+Both Product Intent Packets and Architecture Packets are preserved as historical records:
+- They inform constitutional documents but don't replace them
+- They provide audit trail for planning decisions
+- They can be referenced during execution for context
 
 **[UNIVERSAL]**
 
@@ -808,7 +800,7 @@ Escalations should resolve in minutes, not hours. If Human is unavailable:
 
 **PR-02: [Name]**
 - Objective: [What this PR accomplishes]
-- Brief: `ai_prompts/active/pr-02-[name].md`
+- Architecture Packet: `inbox/20_architecture-plan/[feature-slug]/`
 - Blockers: None
 
 ## Blocked Items

@@ -134,7 +134,7 @@ If a project adopts FAI (see `docs/extensions/fai-overview.md`), it adds an AI i
 Projects using FAI will have:
 - `docs/constitution/FAI.md` — FAI configuration
 - FAI-generated entries in `docs/parking-lot/`
-- Optional: `ai_prompts/templates/fai-feedback-brief.template.md`
+- FAI feedback routed to `inbox/00_drop/` for standard workflow processing
 
 See the [FAI Overview](../extensions/fai-overview.md) for adoption criteria.
 

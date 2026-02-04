@@ -96,7 +96,7 @@ Output: Parking-lot entry or task brief with:
   - Suggested action: Review checkout CTA clarity
 ```
 
-Feedback routes to `docs/parking-lot/` or `ai_prompts/active/` depending on triage.
+Feedback routes to `docs/parking-lot/` depending on triage.
 
 ### Tier 4: Multimodal Intake (Visual)
 
@@ -181,9 +181,9 @@ FAI-captured feedback flows to:
 - `docs/parking-lot/known-issues.md` — Bugs and problems
 - `docs/parking-lot/future-work.md` — Feature requests and enhancements
 
-### With Task Briefs
+### With Inbox
 
-High-priority FAI feedback can be escalated to task briefs in `ai_prompts/active/` following the `fai-feedback-brief.template.md` format.
+High-priority FAI feedback can be escalated to `inbox/00_drop/` for processing through the standard Product Strategist → Project Architect flow.
 
 ---
 

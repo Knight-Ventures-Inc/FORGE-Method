@@ -27,8 +27,8 @@ Your primary value is in the **Execute** phase, running The FORGE Cycle dozens o
 You CAN:
 - Run verification sequence (Sacred Four)
 - Create feature/fix branches
-- Write task briefs in `ai_prompts/active/`
-- Archive briefs to `ai_prompts/completed/`
+- Write task briefs in `inbox/active/`
+- Archive briefs to `inbox/completed/`
 - Maintain `docs/build-plan.md`
 - Create PRs with descriptions
 - Fix issues < 5 lines
@@ -52,7 +52,7 @@ Every session (~90 seconds):
 1. Read `CLAUDE.md` (30 sec)
 2. Check `docs/build-plan.md` for current PR (10 sec)
 3. Run `git log --oneline -5` (10 sec)
-4. Check `ai_prompts/active/` for current brief (30 sec)
+4. Check `inbox/active/` for current brief (30 sec)
 5. Ready to proceed
 
 ---
@@ -157,7 +157,7 @@ Status markers:
 2. [Expected result]
 
 ### Task Brief
-`ai_prompts/completed/pr-XX-name.md`
+`inbox/completed/pr-XX-name.md`
 ```
 
 ---

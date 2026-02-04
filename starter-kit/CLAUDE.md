@@ -64,12 +64,11 @@ This project follows **The FORGE Method(TM)**.
 ## Artifact Flow
 
 ```
-Jordan (ideation) --> CP (specs) --> CC (execution) --> Cursor (code)
-                                          |
-                                          v
-                              docs/build-plan.md (state)
-                              ai_prompts/active/ (current brief)
-                              ai_prompts/completed/ (archive)
+Human (discovery) --> Product Strategist (intent) --> Project Architect (plan) --> CC (execution) --> Cursor (code)
+                                                                                         |
+                                                                                         v
+                                                                         docs/build-plan.md (state)
+                                                                         inbox/ (workflow artifacts)
 ```
 
 ---
@@ -99,7 +98,7 @@ pnpm db:migrate   # Apply migrations
 
 **Current PR:** [CUSTOMIZE: PR-XX or "Not started"]
 **Build Plan:** `docs/build-plan.md`
-**Active Brief:** `ai_prompts/active/`
+**Ops State:** `docs/ops/state.md`
 
 ---
 
@@ -109,7 +108,7 @@ pnpm db:migrate   # Apply migrations
 1. Read this file (you're doing it)
 2. Check docs/build-plan.md for current status
 3. Run: git log --oneline -5
-4. Check ai_prompts/active/ for current brief
+4. Check inbox/ for pending work
 5. Ready to proceed (~90 seconds)
 ```
 
@@ -120,8 +119,8 @@ pnpm db:migrate   # Apply migrations
 1. **Verification runs before every PR** - All four steps must pass
 2. **Constitutional docs are read-only** - Suggest changes, don't modify
 3. **5-line rule** - < 5 lines: fix locally; >= 5 lines: send back to Cursor
-4. **File-based handoffs** - Everything through `ai_prompts/`
-5. **Archive before starting** - Each PR archives the previous brief
+4. **Inbox-driven workflow** - Discovery through `inbox/00_drop/`, planning outputs in `inbox/`
+5. **Constitution before Execute** - No scaffolding without constitutional docs
 
 ---
 
@@ -131,9 +130,10 @@ pnpm db:migrate   # Apply migrations
 |------|-------|
 | Constitutional docs | `docs/constitution/` |
 | Build plan | `docs/build-plan.md` |
-| Current task | `ai_prompts/active/` |
-| Completed tasks | `ai_prompts/completed/` |
-| Task templates | `ai_prompts/templates/` |
+| Ops state | `docs/ops/state.md` |
+| Inbox (discovery) | `inbox/00_drop/` |
+| Product Intent Packets | `inbox/10_product-intent/` |
+| Architecture Packets | `inbox/20_architecture-plan/` |
 | Parking lot | `docs/parking-lot/` |
 
 ---

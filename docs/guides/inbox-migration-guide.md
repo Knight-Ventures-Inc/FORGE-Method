@@ -1,167 +1,158 @@
 # Inbox-First Migration Guide
 
-**Version:** 1.0
+**Version:** 2.0
 **Date:** 2026-02-03
 
 ---
 
 ## Overview
 
-This guide helps projects migrate from ai_prompts-only workflows to inbox-first workflows. Migration is **optional** — both patterns can coexist.
+This guide helps existing projects migrate from legacy `ai_prompts/` workflows to the canonical inbox-driven workflow.
+
+**For new projects:** Inbox-driven workflow is the default. The `ai_prompts/` directory no longer exists in `forge-project-template/`.
+
+**For existing projects:** Migration is recommended but not mandatory. Legacy projects can continue using `ai_prompts/` if already established.
+
+---
+
+## What Changed
+
+As of February 2026, FORGE adopted inbox-driven workflow as the canonical pattern:
+
+| Pattern | Status | Use Case |
+|---------|--------|----------|
+| `inbox/` | **Canonical** | All new projects |
+| `ai_prompts/` | **Deprecated** | Legacy projects only |
+
+Key differences:
+
+| Feature | Legacy (ai_prompts) | Canonical (inbox) |
+|---------|---------------------|-------------------|
+| Discovery input | Task briefs | `inbox/00_drop/` folders |
+| Planning | Task briefs | Product Intent + Architecture Packets |
+| Agent flow | CC → Cursor | Product Strategist → Project Architect → CC |
+| Artifacts | Single task brief | Structured folder with multiple artifacts |
 
 ---
 
 ## When to Migrate
 
-Consider adopting inbox-first if your project has:
+**Migrate if:**
+- Starting new feature work
+- Discovery phase is upcoming
+- Team wants structured intake
+- Project needs clearer Frame → Execute handoff
 
-- Frequent discovery or pivots requiring structured intake
-- Need for external stakeholder visibility into product thinking
-- Desire to separate Frame (discovery) from Execute (implementation)
-- Multiple features in flight requiring clear handoff points
-
-**You do NOT need to migrate if:**
-- Your current ai_prompts workflow is working well
-- You primarily do Execute-phase work (bug fixes, features with clear specs)
-- Your team prefers task-brief-driven workflows
-
----
-
-## Prerequisites
-
-Before migrating:
-
-1. [ ] Project uses forge-project-template structure
-2. [ ] Team understands Frame vs Execute distinction
-3. [ ] Human Lead ready to route Product Strategist output
-4. [ ] Current work-in-progress completed or paused
+**Don't migrate if:**
+- Mid-sprint with active work
+- Small bug fixes only
+- Project is near completion
+- Legacy workflow is working well
 
 ---
 
 ## Migration Steps
 
-### Step 1: Copy Inbox Structure
-
-Copy the inbox directory from forge-project-template:
+### Step 1: Add Inbox Structure
 
 ```bash
-cp -r /path/to/forge-project-template/inbox /path/to/your-project/
+cd your-project
+mkdir -p inbox/{00_drop,10_product-intent,20_architecture-plan}
 ```
 
-This creates:
-```
-your-project/
-└── inbox/
-    ├── README.md
-    ├── 00_drop/
-    │   └── .template/
-    └── 10_product-intent/
-        └── .template/
+Copy README.md from forge-project-template:
+```bash
+cp /path/to/forge-project-template/inbox/README.md inbox/
 ```
 
 ### Step 2: Update CLAUDE.md
 
-Add inbox workflow references to your project's CLAUDE.md:
+Replace any `ai_prompts/` references with inbox workflow:
 
 ```markdown
-## Inbox-Driven Workflow (Frame Phase)
+## Inbox-Driven Workflow
 
-The Product Strategist uses an inbox-driven workflow for Frame phase work.
+Discovery flows through structured phases:
 
-### Structure
-- `inbox/00_drop/<slug>/` — Discovery input (human writes here)
-- `inbox/10_product-intent/<slug>/` — Product Intent Packets (agent writes here)
+| Phase | Location | Agent |
+|-------|----------|-------|
+| Discovery | `inbox/00_drop/<slug>/` | Human |
+| Product Intent | `inbox/10_product-intent/<slug>/` | Product Strategist |
+| Architecture | `inbox/20_architecture-plan/<slug>/` | Project Architect |
 
-### Workflow
-1. Human drops discovery materials in `inbox/00_drop/<slug>/`
-2. Product Strategist processes and asks clarifying questions
-3. Output appears in `inbox/10_product-intent/<slug>/`
-4. Human Lead routes to next phase
+See `inbox/README.md` for detailed workflow.
 ```
 
-### Step 3: Create First Discovery Packet
+### Step 3: Update Cursor Rules
 
-Test the workflow with a real feature:
+Replace `forge-cc.mdc` and `forge-sd.mdc` with current versions from forge-project-template:
 
 ```bash
-mkdir -p inbox/00_drop/my-feature/threads inbox/00_drop/my-feature/assets
+cp /path/to/forge-project-template/.cursor/rules/*.mdc .cursor/rules/
 ```
 
-Create `inbox/00_drop/my-feature/README.md`:
-```markdown
-# Discovery: My Feature
+### Step 4: Migrate Active Work
 
-## Summary
-Brief description of what you want to build.
+For any work-in-progress:
 
-## Problem
-What problem does this solve?
+1. Complete current task brief cycle
+2. Archive completed briefs
+3. Start new features in `inbox/00_drop/`
 
-## Materials
-- See `threads/` for notes
-- See `assets/` for sketches
+### Step 5: Archive Legacy Directory (Optional)
+
+Once all active work is complete:
+
+```bash
+# Keep for reference but mark as legacy
+mv ai_prompts ai_prompts_legacy
+echo "# Legacy - Use inbox/ for new work" > ai_prompts_legacy/README.md
 ```
 
-### Step 4: Process with Product Strategist
-
-Invoke Product Strategist to process the discovery:
-
+Or remove entirely:
+```bash
+rm -rf ai_prompts
 ```
-"Process the discovery packet in inbox/00_drop/my-feature/"
-```
-
-The agent will:
-1. Read your materials
-2. Ask clarifying questions (up to 3 rounds)
-3. Produce Product Intent Packet in `inbox/10_product-intent/my-feature/`
-
-### Step 5: Review and Route
-
-Review the output packet, then route to next phase:
-- If ready for technical planning → Project Architect
-- If needs more discovery → Back to Product Strategist
-- If clear enough for immediate implementation → Execute phase
 
 ---
 
-## Coexistence Notes
+## Coexistence Period
 
-**inbox/ does NOT replace ai_prompts/**
+During transition, both patterns can run:
 
-| Workflow | Phase | Use For |
-|----------|-------|---------|
-| `inbox/` | Frame | Discovery, product intent, feature definition |
-| `ai_prompts/` | Execute | Task briefs, implementation instructions |
+| New work | Use `inbox/` → Product Strategist → Project Architect |
+| Active briefs | Complete via legacy `ai_prompts/` pattern |
+| Bug fixes | Can use either pattern |
 
-Both workflows run in the same project:
-- New features start in `inbox/00_drop/`
-- After Frame phase, implementation continues via `ai_prompts/active/`
+**Goal:** All new features start in `inbox/` even if some legacy work continues.
 
 ---
 
-## Rollback
+## Verification Checklist
 
-If inbox-first doesn't work for your project:
+After migration:
 
-1. Simply stop using `inbox/`
-2. Continue with `ai_prompts/` workflow
-3. Optionally delete `inbox/` directory
-
-No breaking changes to existing workflows.
+- [ ] `inbox/` directory exists with correct structure
+- [ ] `CLAUDE.md` references inbox workflow
+- [ ] Cursor rules updated to current version
+- [ ] Team understands new workflow
+- [ ] First discovery packet created as test
 
 ---
 
-## Relationship to PRODUCT.md
+## Relationship to Constitutional Docs
 
-| Artifact | Purpose | Location |
-|----------|---------|----------|
-| Product Intent Packet | Frame-phase discovery output | `inbox/10_product-intent/` |
-| PRODUCT.md | Refined constitutional doc | `docs/constitution/` |
+| Artifact | Phase | Location |
+|----------|-------|----------|
+| Discovery materials | Frame | `inbox/00_drop/` |
+| Product Intent Packet | Frame | `inbox/10_product-intent/` |
+| Architecture Packet | Orchestrate | `inbox/20_architecture-plan/` |
+| PRODUCT.md | Refine | `docs/constitution/` |
 
-Product Intent Packets **precede and inform** PRODUCT.md:
-- Packets are historical discovery record
-- PRODUCT.md is current authority
-- Multiple packets may exist over project lifecycle
+Packets **precede and inform** constitutional docs:
+- Packets are Frame/Orchestrate phase artifacts
+- Constitutional docs are refined from packet insights
+- Both are preserved as historical record
 
 ---
 
@@ -169,8 +160,8 @@ Product Intent Packets **precede and inform** PRODUCT.md:
 
 See:
 - `forge-project-template/inbox/README.md` — Detailed inbox workflow
-- `FORGE-Method/agents/forge-product-strategist-guide.md` — Product Strategist operating guide
-- `FORGE/CLAUDE.md` — Umbrella governance with lane definitions
+- `FORGE-Method/core/forge-operations.md` — Part 7: Inbox-Driven Workflow
+- `FORGE/CLAUDE.md` — Umbrella governance
 
 ---
 

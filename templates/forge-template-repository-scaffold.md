@@ -96,7 +96,7 @@ Remove the banner only when:
 │   ├── PULL_REQUEST_TEMPLATE.md         # [UNIVERSAL] PR format
 │   └── workflows/                       # [CONTEXTUAL] CI/CD if needed
 │       └── .gitkeep
-├── ai_prompts/
+├── inbox/
 │   ├── active/                          # [UNIVERSAL] Current task brief only
 │   │   └── .gitkeep
 │   ├── completed/                       # [UNIVERSAL] Archived by PR number
@@ -178,7 +178,7 @@ Remove the banner only when:
 | `docs/parking-lot/future-work.md` | Feature ideas, enhancements | CC | Instantiation |
 | `.cursor/rules/forge-*.mdc` | Role-specific Cursor rules | CC | Instantiation (from starter-kit) |
 | `.github/PULL_REQUEST_TEMPLATE.md` | PR format | CC | Instantiation |
-| `ai_prompts/templates/*.md` | Task brief/handoff templates | CC | Instantiation |
+| `inbox/templates/*.md` | Task brief/handoff templates | CC | Instantiation |
 
 ### Contextual Files (Create If Condition Met)
 
@@ -211,7 +211,7 @@ These patterns caused friction in Vantage and are explicitly disallowed:
 |---------|---------|---------|
 | `HANDOFF.md` in root | Conflicts with build-plan, causes ambiguity | Use `docs/ops/state.md` |
 | `AGENTS.md` in root | Duplicates ops state | Use `docs/ops/agents.md` if needed |
-| Reports in `ai_prompts/` | Mixes instructions with outputs | Use `reports/` at root |
+| Reports in `inbox/` | Mixes instructions with outputs | Use `reports/` at root |
 | `docs/decisions/` | Non-standard naming | Use `docs/adr/` |
 | Multiple handoff files | "Which is current?" confusion | Single `docs/ops/state.md` |
 
@@ -267,14 +267,14 @@ Skip if not using a framework scaffolder.
 # Create FORGE directories
 mkdir -p .cursor/rules
 mkdir -p .github/workflows
-mkdir -p ai_prompts/{active,completed,templates}
+mkdir -p inbox/{active,completed,templates}
 mkdir -p docs/{constitution,parking-lot,adr,ops}
 mkdir -p reports
 
 # Create .gitkeep files
 touch .github/workflows/.gitkeep
-touch ai_prompts/active/.gitkeep
-touch ai_prompts/completed/.gitkeep
+touch inbox/active/.gitkeep
+touch inbox/completed/.gitkeep
 touch docs/adr/.gitkeep
 touch reports/.gitkeep
 
@@ -307,8 +307,8 @@ touch reports/.gitkeep
 | `docs/parking-lot/future-work.md` | Future work template |
 | `.cursor/rules/forge-*.mdc` | Role-specific rules from `starter-kit/.cursor/rules/` |
 | `.github/PULL_REQUEST_TEMPLATE.md` | PR template |
-| `ai_prompts/templates/task-brief-template.md` | Task Brief template |
-| `ai_prompts/templates/handoff-template.md` | Handoff template |
+| `inbox/templates/task-brief-template.md` | Task Brief template |
+| `inbox/templates/handoff-template.md` | Handoff template |
 
 ### Phase 4: Place Constitutional Documents
 
@@ -353,7 +353,7 @@ The `docs/ops/state.md` file replaces scattered handoff files with a single sour
 |-------|-------|
 | Current PR | PR-[XX] |
 | Branch | `feat/pr-[xx]-[name]` |
-| Active Brief | `ai_prompts/active/[brief].md` |
+| Active Brief | `inbox/active/[brief].md` |
 | Last Verified Commit | `[short-sha]` |
 
 ## Blockers
@@ -392,7 +392,7 @@ If the Kickoff Brief doesn't specify, default to `tests/` at root.
 |---------|---------|------------|
 | Missing Project Shell banner | Scaffolding mistaken for scope commitment | Always add banner until Execute authorized |
 | Multiple state files | "Which handoff doc is current?" | Single `docs/ops/state.md`, ban root HANDOFF.md |
-| Reports in ai_prompts | Mixing instructions with outputs | Enforce separation: prompts vs reports |
+| Reports in inbox | Mixing instructions with outputs | Enforce separation: prompts vs reports |
 | Missing .gitkeep files | Empty directories not committed | Add .gitkeep to all empty directories |
 | Constitution placeholders not replaced | Execute starts with stub specs | Verify real docs placed before removing Shell banner |
 | Wrong tests location | Tests not discovered by runner | Match stack convention, verify in CI |
@@ -419,7 +419,7 @@ Use this checklist when instantiating a new FORGE project:
 - [ ] docs/parking-lot/ files created (README.md, known-issues.md, future-work.md)
 - [ ] .cursor/rules/forge-*.mdc files copied from starter-kit
 - [ ] .github/PULL_REQUEST_TEMPLATE.md created
-- [ ] ai_prompts/templates/ populated
+- [ ] inbox/templates/ populated
 
 ### Verification
 - [ ] `git status` shows expected files
