@@ -1,11 +1,12 @@
-# Project Architect Agent Template
+# Project Architect Agent Template (Legacy)
 
-> **DEPRECATED:** This template has been superseded.
-> **New Canonical Location:** `templates/agents/project-architect.template.md`
-> **Migration Date:** 2026-01-15
+> **DEPRECATED:** This template has been superseded by Project Architect v2.
+> **New Canonical Location:** `templates/agents/project-architect-v2.template.md`
+> **Original Migration Date:** 2026-01-15 (to v1)
+> **v2 Migration Date:** 2026-02-03
 >
-> This file is preserved for backward compatibility. All new projects and retrofits
-> should use the canonical template at `templates/agents/project-architect.template.md`.
+> This file is preserved for backward compatibility only. All new projects and retrofits
+> should use Project Architect v2 at `templates/agents/project-architect-v2.template.md`.
 
 ---
 

@@ -1,6 +1,23 @@
 <!-- Audience: Public -->
 
-# Project Architect Agent Template
+# Project Architect Agent Template (v1)
+
+> **DEPRECATED:** This template has been superseded by Project Architect v2.
+> **New Canonical Location:** `templates/agents/project-architect-v2.template.md`
+> **Deprecation Date:** 2026-02-03
+>
+> This file is preserved for backward compatibility. New projects should use
+> Project Architect v2 which implements the inbox-driven Orchestrate (O) lane
+> workflow with structured Architecture & Execution Packets.
+>
+> Key improvements in v2:
+> - Explicit inbox-to-inbox flow (Product Intent → Architecture Packet)
+> - 7-file structured packet format
+> - 8-item coherence checklist
+> - Max 2 questioning rounds with defaults
+> - Clearer lane boundaries
+
+---
 
 > **Canonical Location:** `<project-root>/.claude/agents/project-architect.md`
 > **Used By:** forge-architect (new projects) and forge-maintainer (retrofits)
