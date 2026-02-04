@@ -16,9 +16,15 @@ FORGE defines five standard roles. In Knight Ventures projects, these map to spe
 |------|-------|---------------|----------|
 | **Human Lead** | Leo | All phases | Direction, greenlight, final authority |
 | **Strategist** | Product Strategist | Frame | Product framing, Product Intent Packet |
-| **Architect** | project-architect (local) | Refine | Constitutional documents, planning |
-| **Quality Gate** | CC (Claude Code) | Execute | Verification, PRs, build plan |
-| **Implementation Engine** | Cursor | Execute | Code production per task briefs |
+| **Architect** | project-architect (local) | Orchestrate/Refine | Constitutional documents, planning |
+| **Governor** | Ops Agent | Govern | State ownership, coordination, validation, gating |
+| **Execution** | E agents/humans | Execute | Code production per task briefs |
+
+**Note on Tools vs Roles:**
+- **CC (Claude Code)** is infrastructure/runtime used by agents, not a FORGE role
+- **Cursor** was the historical E analog; now E represents any execution capability
+- FORGE roles are **F/O/R/G/E**, not tool names
+- See `docs/evolution/cc-to-roles-evolution.md` for details
 
 **Supporting Roles:**
 - **Perplexity** — Research assistant for market validation and fact-finding
@@ -38,22 +44,21 @@ FORGE defines five standard roles. In Knight Ventures projects, these map to spe
          │                        │                        │
          ▼                        ▼                        ▼
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│    JORDAN       │    │ PROJECT-ARCH    │    │       CC        │
-│  (Strategist)   │◄──►│  (Architect)    │───►│  (Quality Gate) │
-│   Frame Phase   │    │  Refine Phase   │    │  Execute Phase  │
+│ PRODUCT STRAT   │    │ PROJECT-ARCH    │    │   OPS AGENT     │
+│  (Strategist)   │───►│  (Architect)    │───►│   (Governor)    │
+│   Frame (F)     │    │  Refine (R)     │    │   Govern (G)    │
 └─────────────────┘    └─────────────────┘    └────────┬────────┘
          │                                             │
          ▼                                             ▼
 ┌─────────────────┐                          ┌─────────────────┐
-│   PERPLEXITY    │                          │     CURSOR      │
-│   (Research)    │                          │ (Implementation)│
+│   PERPLEXITY    │                          │   EXECUTION     │
+│   (Research)    │                          │      (E)        │
 └─────────────────┘                          └─────────────────┘
 
-Remote Extension (when Leo is away from iMac Pro):
-┌─────────────────┐
-│  CODEX CLOUD    │ ──produces──► Handoff Packets ──► CC executes
-│  (Recon Agent)  │
-└─────────────────┘
+Legend:
+- F/O/R/G/E = FORGE roles (canonical)
+- CC (Claude Code) = infrastructure used BY agents (not a role)
+- E = Execution agents or humans (what Cursor historically represented)
 ```
 
 **Key Rules:**
@@ -70,11 +75,11 @@ Remote Extension (when Leo is away from iMac Pro):
 
 | Phase | Primary Owner | Contributors | Deliverables |
 |-------|---------------|--------------|--------------|
-| **Frame** | Product Strategist | Leo, Perplexity | Product Intent Packet |
-| **Orchestrate** | Leo | Product Strategist, project-architect | Agent assignments, Project Identity |
-| **Refine** | project-architect | Leo | Constitutional documents |
-| **Govern** | Leo | CC | Quality gates, escalation rules |
-| **Execute** | CC | Cursor, Leo | Working deliverable |
+| **Frame (F)** | Product Strategist | Leo, Perplexity | Product Intent Packet |
+| **Orchestrate (O)** | Leo | Product Strategist, project-architect | Agent assignments, Project Identity |
+| **Refine (R)** | project-architect | Leo | Constitutional documents |
+| **Govern (G)** | **Ops Agent** | Leo, E agents | Build Plan, Execution State, Verified PRs |
+| **Execute (E)** | E agents/humans | Ops Agent (coordination) | Working deliverable |
 
 ---
 

@@ -8,6 +8,62 @@ Format: `[YYYY-MM-DD] Title` with summary, files touched, and impact scope.
 
 ---
 
+## [2026-02-03] Ops Agent — Govern Phase Owner (v1.3.0)
+
+**Summary:** Introduced the Ops Agent as the canonical owner of the Govern (G) phase. Established role-based (F/O/R/G/E) model as canon. Clarified that CC is infrastructure, not a FORGE role.
+
+**Files touched:**
+- `agents/forge-ops-agent-guide.md` (created) — Complete operating guide for Ops Agent
+- `docs/evolution/cc-to-roles-evolution.md` (created) — Role vs tool clarification
+- `core/forge-core.md` (modified) — Added Ops Agent as G-phase owner
+- `agents/forge-agent-roles-handoffs.md` (modified) — Updated roles table and topology
+- `CHANGELOG.md` (updated)
+
+**Impact:** Public canon — defines canonical Govern (G) phase implementation. Establishes role-based model.
+
+**Details:**
+
+### Added
+- Ops Agent operating guide (`agents/forge-ops-agent-guide.md`)
+- Role evolution document (`docs/evolution/cc-to-roles-evolution.md`)
+- `inbox/30_ops/` directory structure for G-phase artifacts
+- Build Plan as canonical execution state artifact
+- Human-in-the-loop checkpoint model (4 required gates)
+- MAY DO / MAY NOT DO permission matrix
+- STOP conditions for mandatory agent halts
+- G → E coordination patterns
+
+### Changed
+- **G-phase owner:** Ops Agent (explicit role, not implicit coordination)
+- **Role hierarchy:** F/O/R/G/E established as canonical (role-based, not tool-based)
+- **CC clarification:** CC is infrastructure/runtime, not a FORGE role
+- **E clarification:** E represents execution agents/humans (what Cursor historically represented)
+- Updated `forge-agent-roles-handoffs.md` with Ops Agent in roles table
+- Updated `forge-core.md` with Ops Agent as G-phase owner
+- Updated communication topology diagram
+
+### Key Concepts
+- **Ops Agent (G):** State ownership, coordination, validation, gating
+- **Build Plan:** Canonical execution strategy derived from Architecture Packet
+- **Execution State:** Living status narrative (done/blocked/next)
+- **Human-in-the-loop:** 4 checkpoints (Build Plan, Phase Completion, PR Merge, Deployment)
+- **G → E coordination:** G defines what, E implements how
+
+### Mental Model Correction
+- **FORGE is role-based** (F/O/R/G/E), not tool-based
+- **CC (Claude Code)** is infrastructure used BY agents, not a FORGE role
+- **Cursor** was the historical E analog; E now represents any execution capability
+- **G coordinates E**, not "CC coordinates Cursor"
+
+### Quality Standard
+Ops Agent enforces:
+- Sacred Four verification (typecheck, lint, test, build)
+- Architecture Packet compliance
+- Human approval at all checkpoints
+- No silent continuation past STOP conditions
+
+---
+
 ## [2026-02-03] Product Strategist Agent Role (v1.2.0)
 
 **Summary:** Introduced the Product Strategist as the canonical agent role for the Frame (F) phase. This role formalizes inbox-driven product framing with professional PM-level Product Intent Packets.

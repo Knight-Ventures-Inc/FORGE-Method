@@ -2,8 +2,8 @@
 
 **Frame. Orchestrate. Refine. Govern. Execute.**
 
-**Version:** 1.1  
-**Steward:** Knight Ventures, Inc.  
+**Version:** 1.2
+**Steward:** Knight Ventures, Inc.
 **Status:** Canonical  
 **Website:** theforgemethod.org
 
@@ -79,15 +79,29 @@ Refine is complete when implementation requires zero architectural decisions —
 
 ### G — Govern
 
-**Purpose:** Establish the rules that keep execution on track.
+**Purpose:** Coordinate execution state, validate outputs, and enforce human-in-the-loop gates.
 
-Govern defines:
-- Quality gates (what must pass before merge)
-- Escalation triggers (when to stop and ask)
-- Timeout policies (when to force decisions)
-- Handoff protocols (how work transfers between agents)
+**Phase Owner:** Ops Agent
 
-Govern is complete when the verification sequence is mechanical and the escalation path is unambiguous.
+Govern owns:
+- **Build Plan** — Canonical execution strategy derived from Architecture Packet
+- **Execution State** — Living status: done, blocked, next
+- **Quality gates** — What must pass before merge (Sacred Four)
+- **Approval checkpoints** — Human decisions at defined gates
+- **Handoff protocols** — How work transfers between G and E
+
+The Ops Agent:
+- Decomposes Architecture Packets into phased Build Plans
+- Coordinates Execution (E) agents or humans
+- Validates outputs against specifications
+- Requests human approval at checkpoints
+- Bridges continuously between planning and execution
+
+Govern is complete when the human can ask "What's next?" and get a coherent answer from the execution state.
+
+**Important:** CC (Claude Code) is infrastructure, not a FORGE role. FORGE roles are F/O/R/G/E. See `docs/evolution/cc-to-roles-evolution.md`.
+
+See `agents/forge-ops-agent-guide.md` for full specification.
 
 **[UNIVERSAL]**
 
@@ -281,6 +295,36 @@ Preserve the principles. Adapt the practices.
 
 ---
 
+## Extensions
+
+FORGE extensions are foundational capabilities that enhance projects. Some are required; others are optional.
+
+### Required Extensions
+
+**For All Projects:**
+- **[Discovery Pack](../docs/extensions/discovery-pack.md)** — Structured discovery-to-spec methodology. Every FORGE project begins with discovery.
+
+**For Software Projects:**
+- **[Auth/RBAC](../docs/extensions/auth-rbac.md)** — Identity and permission foundation. Ships Day One.
+- **[Stakeholder Interface](../docs/extensions/stakeholder-interface.md)** — First-party visibility, feedback, and AI assistance. Ships Day One.
+
+### Optional Extensions
+
+- **[FORGE AI Interface (FAI)](../docs/extensions/fai-overview.md)** — Execution capabilities for mature projects. Maturity-gated.
+
+### Extension Principles
+
+Extensions are:
+- **Additive** — They enhance FORGE; they do not replace core methodology
+- **Bounded** — Each has clear adoption criteria and scope
+- **Documented** — Full details in `docs/extensions/`
+
+Extensions never override the Five Laws, the Five Macro-Steps, or human greenlight requirements.
+
+**[UNIVERSAL]**
+
+---
+
 ## Governance
 
 ### Stewardship
@@ -319,6 +363,7 @@ FORGE Core is available under a permissive license:
 |---------|------|---------|
 | 1.0 | 2026-01-03 | Initial release |
 | 1.1 | 2026-01-04 | Restructured as Core + Operations Manual; added The FORGE Cycle concept; incorporated CC ground-truth review |
+| 1.2 | 2026-01-23 | Added Extensions section: Auth/RBAC, Stakeholder Interface, Discovery Pack as foundational capabilities |
 
 ---
 
