@@ -18,7 +18,7 @@ FORGE defines five standard roles. In Knight Ventures projects, these map to spe
 | **Strategist** | Product Strategist | Frame | Product framing, Product Intent Packet |
 | **Architect** | project-architect (local) | Orchestrate/Refine | Constitutional documents, planning |
 | **Governor** | Ops Agent | Govern | State ownership, coordination, validation, gating |
-| **Execution** | E agents/humans | Execute | Code production per task briefs |
+| **Execution** | @E (E agents/humans) | Execute | Code production per task briefs |
 
 **Note on Tools vs Roles:**
 - **CC (Claude Code)** is infrastructure/runtime used by agents, not a FORGE role
@@ -347,3 +347,115 @@ When forge-architect creates a new project, the CLAUDE.md must:
 **© 2026 Knight Ventures, Inc. All rights reserved.**
 
 **FORGE™** is a trademark of Knight Ventures, Inc.
+
+---
+
+## @E: Addressable Execution Role
+
+### Overview
+
+**@E** is the addressable execution role in FORGE. Unlike previous informal references to "Cursor" or "implementation agents," @E is now a formalized, governed role with clear authority boundaries.
+
+**Canonical Statement:**
+> @E may be internally autonomous (sub-agents, tools, loops) but is externally submissive to FORGE routing (Human → @G → @E).
+
+### @E Addressability
+
+**What it means:**
+- Human Lead or @G can route work to @E via handoff packets
+- @E is **a role**, not a specific tool (CC, Cursor, etc. are tools @E may use)
+- @E remains accountable for all execution output
+- @E can ask clarifying questions back to @G
+- @E can escalate issues to @G + Human Lead
+
+**What it does NOT mean:**
+- @E is NOT a generic implementation service that bypasses governance
+- @E is NOT authorized to interpret vague requirements without clarification
+- @E is NOT permitted to "fill in the blanks" on scope/architecture decisions
+
+### Authority Matrix (Summary)
+
+**@E MAY:**
+- Use execution tools (Claude Code, Cursor CLI, sub-agents, Ralph loops)
+- Create branches, commits, PRs per protocol
+- Produce tests, code, migrations, CI workflows
+- Run quality iteration loops (Ralph-style)
+- Fan out to internal sub-agents for parallel work
+- Use stack alternatives if handoff packet allows
+
+**@E MUST:**
+- Start from approved handoff packet
+- Ask clarifying questions before making assumptions
+- Prefer tests-first (TDD) or tests-alongside
+- Keep audit trail (branch → commits → PR → completion packet)
+- STOP for scope/architecture/constitution conflicts
+- Produce completion packet with JSON frontmatter for @G validation
+
+**@E MUST NOT:**
+- Invoke @F/@O/@R/@G directly or bypass routing
+- Change Build Plan or sequencing (that's @G's domain)
+- Make product decisions (that's @F + Human domain)
+- Redesign architecture (that's @O's domain)
+- Override governance gates or Sacred Four failures
+- Commit directly to `main` branch (all merges via PR)
+
+### @E Operating Guide
+
+For complete @E behavioral model, see:
+- **Operating Guide:** `agents/forge-e-operating-guide.md`
+- **SaaS Standards:** `templates/forge-template-saas-standards.md`
+- **Testing Requirements:** `templates/forge-template-testing-requirements.md`
+- **CI/CD Workflows:** `templates/forge-template-cicd-workflows.md`
+- **Handoff Protocols:** `templates/forge-template-handoff-protocols.md`
+
+### Handoff: @G → @E
+
+**Trigger:** @G creates approved handoff packet
+
+**@G Delivers:**
+1. **Handoff packet** with YAML frontmatter:
+   - `handoff_id`: Unique identifier
+   - `scope`: What to build
+   - `files_to_touch`: Expected blast radius
+   - `acceptance_criteria`: Success definition
+   - `constraints`: What NOT to do
+   - `stack_allowances`: Permitted deviations
+   - `approval_status: approved`
+   - `approved_by`: @G + Human Lead
+
+**@E Confirms:**
+- Handoff packet received and understood
+- Capabilities detected (CC, Cursor, Ralph available?)
+- Clarifying questions asked if scope ambiguous
+- Work begins only after confirmation
+
+**@E Delivers (Completion Packet):**
+1. **YAML frontmatter** (machine-readable for @G validation):
+   - `handoff_id`: Links to originating handoff
+   - `branch`, `pr_url`, `status`
+   - `tests_added`, `tests_passed`, `coverage_delta`
+   - `sacred_four_*`: All 4 checks (pass/fail)
+   - `migrations_required`, `breaking_changes`
+   - `files_created`, `files_modified`, `files_deleted`
+
+2. **Markdown narrative** (human-readable context):
+   - Changes summary
+   - Sacred Four status
+   - Constraints compliance
+   - Acceptance criteria met
+   - Handoff notes (if any)
+
+**@G Validates:**
+- Sacred Four: all pass
+- Coverage threshold met (≥70%, 100% for Sacred Four paths)
+- Acceptance criteria met
+- Constraints respected
+- Breaking changes flagged (if any)
+
+**If validation fails:** @G returns to @E with specific issues to fix.
+**If validation passes:** @G forwards to Human Lead for PR review.
+
+---
+
+*@E is now a first-class citizen in FORGE routing, with clear authority boundaries and validation protocols.*
+

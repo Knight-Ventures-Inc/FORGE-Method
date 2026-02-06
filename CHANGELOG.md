@@ -8,7 +8,51 @@ Format: `[YYYY-MM-DD] Title` with summary, files touched, and impact scope.
 
 ---
 
-## [2026-02-03] Ops Agent — Govern Phase Owner (v1.3.0)
+## [2026-02-06] E Lane Formalization (v1.3.0)
+
+**Summary:** Formalized the E (Execution) lane as an enterprise-grade capability for building production SaaS applications. @E is now an addressable role-agent with comprehensive operating guide, SaaS development standards, testing infrastructure, CI/CD workflows, and human handoff protocols.
+
+**Files touched:**
+- `agents/forge-e-operating-guide.md` (created) — Complete @E behavioral model (~5000 lines)
+- `templates/forge-template-saas-standards.md` (created) — SaaS tech stack defaults (~3000 lines)
+- `templates/forge-template-testing-requirements.md` (created) — Testing infrastructure spec (~3500 lines)
+- `templates/forge-template-cicd-workflows.md` (created) — CI/CD pipeline templates (~2500 lines)
+- `templates/forge-template-handoff-protocols.md` (created) — Human handoff protocols (~2000 lines)
+- `agents/forge-agent-roles-handoffs.md` (modified) — Added @E addressability section
+- `CHANGELOG.md` (updated)
+
+**Impact:** Public canon — defines canonical Execute (E) phase implementation. Elevates @E from under-specified "implementation agents/humans" to enterprise-grade execution role.
+
+**Details:**
+
+### Added
+- @E operating guide with behavioral model, authority matrix, sub-agent roster
+- SaaS development standards (Next.js 15+, Supabase, TypeScript strict)
+- Testing requirements (70% default, 100% Sacred Four paths)
+- CI/CD pipeline templates (GitHub Actions + Vercel + Supabase)
+- Human team handoff protocols (README, ARCHITECTURE, ONBOARDING, ADRs)
+- Handoff → completion protocol with YAML frontmatter validation
+- Capability detection protocol
+- Escalation triggers and decision tree
+
+### Key Concepts
+- **@E Canonical Statement:** "May be internally autonomous but externally submissive to FORGE routing"
+- **Sacred Four:** typecheck, lint, test, build (enforced on all PRs)
+- **Coverage thresholds:** 70% default, 100% for auth/billing/data integrity/security
+- **Handoff packets:** YAML frontmatter with scope, constraints, acceptance criteria
+- **Completion packets:** JSON frontmatter + markdown narrative for @G validation
+- **Sub-agent roster:** E-test-writer, E-ui-builder, E-api-builder, E-migrations, E-ci-cd, E-docs
+- **Stack defaults:** Next.js + Supabase + TypeScript strict + Vitest + Playwright
+- **TDD workflow:** Tests-first preferred, tests-alongside minimum, tests-later forbidden
+
+### Changed
+- **@E clarification:** E is addressable role-agent (not just "Cursor" or generic implementation)
+- Updated `forge-agent-roles-handoffs.md` with @E as addressable role
+- Updated roles table to show @E (E agents/humans) consistently
+
+---
+
+## [2026-02-03] Ops Agent — Govern Phase Owner (v1.2.0)
 
 **Summary:** Introduced the Ops Agent as the canonical owner of the Govern (G) phase. Established role-based (F/O/R/G/E) model as canon. Clarified that CC is infrastructure, not a FORGE role.
 
