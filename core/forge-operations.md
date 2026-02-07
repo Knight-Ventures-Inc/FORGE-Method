@@ -877,6 +877,50 @@ Adapt commands to your stack. Preserve the four-step pattern.
 
 ---
 
+## Appendix F: Router Operations (v1.3)
+
+### @G Router Event Logging
+
+All cross-lane transition requests are logged to `docs/router-events/YYYY-MM-DD.jsonl` in JSON Lines format. Events are append-only and never deleted.
+
+**Event types:** `transition`, `error`, `fallback`, `gate_check`
+
+**Required fields:** `timestamp`, `tier`, `source_role`, `target_role`, `request_type`, `action`, `event_id`
+
+See `FORGE-Method/templates/forge-template-router-events.md` for full schema.
+
+### FORGE-AUTONOMY.yml
+
+Each project MAY include a `FORGE-AUTONOMY.yml` file at the project root to configure autonomy behavior. Key fields:
+
+- `tier` — Active autonomy tier (0-3, default 0)
+- `forge_entry.required_file` — Gate artifact for FORGE unlock
+- `router.event_log_path` — Where events are logged
+- `allowed_transitions` — Permitted transition pairs
+- `human_gates` — Actions requiring human approval at all tiers
+- `blast_radius` — Thresholds for auto-routing (Tier 2/3)
+
+See `FORGE-Method/templates/forge-template-autonomy-policy.md` for full schema.
+
+### Pre-FORGE Lifecycle (A.B.C)
+
+Projects using FORGE v1.3+ include an `abc/` directory for pre-commitment intake:
+
+```
+abc/
+├── INTAKE.md          ← @A output
+├── BRIEF.md           ← @B output (optional)
+├── FORGE-ENTRY.md     ← @C output (gate artifact)
+├── inbox/             ← Raw inputs
+└── context/           ← Supporting context
+```
+
+`abc/FORGE-ENTRY.md` is the gate artifact. F/O/R/G/E agents are blocked until it exists.
+
+**[UNIVERSAL]**
+
+---
+
 ## Version History
 
 | Version | Date | Changes |
@@ -884,6 +928,7 @@ Adapt commands to your stack. Preserve the four-step pattern.
 | 1.0 | 2026-01-03 | Initial release (combined with Core) |
 | 1.1 | 2026-01-04 | Extracted as Operations Manual; incorporated CC ground-truth review; added FORGE Cycle, decision heuristics, kill switches, context integrity |
 | 1.1.1 | 2026-01-04 | CC validation passed; added error classification heuristics; generalized identity file reference; added parallel work note |
+| 1.2 | 2026-02-06 | Added Appendix F: Router operations, event logging, FORGE-AUTONOMY.yml, pre-FORGE lifecycle (Decision-005) |
 
 ---
 

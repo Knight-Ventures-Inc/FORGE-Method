@@ -1,9 +1,11 @@
 # FORGE Product Strategist Operating Guide
 
-**Role:** Product Strategist
+**Role:** Product Strategist (also addressed as **@F**)
 **Phase:** Frame (F)
 **Authority:** Advisory Only
-**Version:** 1.0
+**Version:** 1.1
+
+> **Role Addressing (v1.3):** This agent is also invoked via `@F` or `/forge-f`. The Product Strategist is the canonical implementation behind the @F role-agent. See `forge-f` skill and Decision-005 for details.
 
 ---
 

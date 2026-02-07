@@ -238,6 +238,39 @@ Examples must:
 
 ---
 
+## Autonomy Model Governance (v1.3)
+
+FORGE v1.3 introduces a configurable autonomy model via `FORGE-AUTONOMY.yml`. This section governs how autonomy tiers are managed.
+
+### Tier Definitions
+
+| Tier | Behavior | Governance Level | Version |
+|------|----------|-----------------|---------|
+| **0** | @G refuses all transitions; instructs human | Fully human-mediated | v1.3 (default) |
+| **1** | @G proposes transitions; human approves | Human-approved routing | v1.3 (schema only) |
+| **2** | @G auto-dispatches within policy constraints | Policy-governed routing | Future MAJOR |
+| **3** | Full autonomous F→O→R→G→E pipeline | Autonomous with human gates | Future MAJOR |
+
+### Governance Rules
+
+1. **Tier changes require decision records** — Upgrading from Tier 0 to Tier 1 requires a project-level decision. Upgrading to Tier 2/3 requires a FORGE MAJOR version decision.
+2. **Pre-FORGE agents (A/B/C) are always Tier 0** — The pre-commitment lifecycle always requires human mediation.
+3. **Human gates are enforced at all tiers** — Constitution changes, scope changes, architecture changes, and production deploys always require human approval.
+4. **@G is the only router** — No direct role-to-role transitions at any tier. All routing through @G.
+5. **Fallback to Tier 0 on error** — Any routing failure degrades gracefully to human-mediated mode.
+
+### Decision History
+
+| Decision | Tier Impact | Version |
+|----------|-------------|---------|
+| Decision-003 | Established F/O/R/G/E lanes with human-mediated routing | v1.2 |
+| Decision-004 | Formalized Ops Agent as G phase owner | v1.2 |
+| Decision-005 | Added @role addressing, Tier 0-1, AMENDED Decision-003 | v1.3 |
+
+See `_workspace/05_decisions/` for full decision records.
+
+---
+
 ## Review Cadence
 
 | Review Type | Frequency | Purpose |

@@ -1,8 +1,10 @@
 # Ops Agent Operating Guide
 
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-02-03
-**Status:** [OPS]
+**Status:** [DEPRECATED — see @G Operating Guide]
+
+> **Deprecation Notice (v1.3):** The Ops Agent role has been superseded by the **@G (Govern)** role-agent, which adds explicit routing, policy enforcement, event logging, and autonomy tier support. See `forge-g-operating-guide.md` and Decision-005. This guide is retained for historical reference.
 
 ---
 

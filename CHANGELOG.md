@@ -8,7 +8,58 @@ Format: `[YYYY-MM-DD] Title` with summary, files touched, and impact scope.
 
 ---
 
-## [2026-02-06] E Lane Formalization (v1.3.0)
+## [2026-02-06] Role Addressing & Autonomy Tiers (v1.3.0)
+
+**Summary:** Introduced 8 real role-agents (@A/@B/@C pre-FORGE + @F/@O/@R/@G/@E FORGE lifecycle) with explicit @role addressing, @G as canonical router, configurable autonomy tiers (0-1), FORGE-AUTONOMY.yml schema v0.1, and pre-FORGE lifecycle (A.B.C) with FORGE-ENTRY.md gate artifact. This AMENDS Decision-003 to add structured @G routing within Tier 0-1 constraints.
+
+**Decision:** [Decision-005](_workspace/05_decisions/decision-005-role-addressing-tier01-2026-02-06.md)
+
+**Files touched:**
+- `agents/forge-a-operating-guide.md` (created) — @A Acquire agent guide
+- `agents/forge-b-operating-guide.md` (created) — @B Brief agent guide
+- `agents/forge-c-operating-guide.md` (created) — @C Commit agent guide
+- `agents/forge-g-operating-guide.md` (created) — @G Govern/Router agent guide
+- `templates/forge-template-autonomy-policy.md` (created) — FORGE-AUTONOMY.yml schema doc
+- `templates/forge-template-router-events.md` (created) — Router event log format
+- `core/forge-core.md` (modified) — Law 3 Tier 0-1 compatibility, Govern section @G update
+- `core/forge-governance.md` (modified) — Autonomy model governance section
+- `core/forge-operations.md` (modified) — Router operations appendix
+- `agents/forge-product-strategist-guide.md` (modified) — Added @F addressing note
+- `agents/forge-e-operating-guide.md` (modified) — Added tier-aware behavior note
+- `agents/forge-ops-agent-guide.md` (modified) — Deprecated in favor of @G
+- `agents/forge-agent-roles-handoffs.md` (modified) — Full A/B/C + F/O/R/G/E table
+- `CHANGELOG.md` (updated)
+
+**Impact:** Public canon — adds role addressing system, pre-FORGE lifecycle, and autonomy model foundation.
+
+### Added
+- 8 real role-agents: @A/@B/@C (pre-FORGE) + @F/@O/@R/@G/@E (FORGE lifecycle)
+- Explicit @role addressing syntax for precision invocation
+- @G as canonical router for all cross-lane transitions
+- FORGE-AUTONOMY.yml schema v0.1 (default tier 0, autonomy engine stubbed)
+- Router event logging to `docs/router-events/` (append-only audit trail)
+- `abc/` directory structure for pre-FORGE lifecycle (A.B.C)
+- `abc/FORGE-ENTRY.md` as gate artifact unlocking F/O/R/G/E agents
+- CLAUDE.md concierge startup UX (progressive disclosure, no jargon)
+- Operating guides for @A/@B/@C/@G agents
+- Skills-based implementation (`/forge-a` through `/forge-e`)
+- Tier 0 routing: roles request @G, @G refuses, instructs human
+- Tier 1 schema (human approval before dispatch, Phase 2 activation)
+
+### Changed
+- Decision-003 AMENDED to add structured @G routing within Tier 0-1 constraints
+- Law 3 clarified: Tier 0-1 compatible with "human greenlight required"
+- Product Strategist guide updated (now also addressed as @F)
+- @E guide updated with tier-aware behavior
+- Agent Roles & Handoffs updated with full 8-agent model
+
+### Deprecated
+- forge-architect agent (absorbed into @A, sunset planned for v1.4, removal in v2.0)
+- forge-ops-agent-guide.md (superseded by forge-g-operating-guide.md)
+
+---
+
+## [2026-02-06] E Lane Formalization (v1.2.0)
 
 **Summary:** Formalized the E (Execution) lane as an enterprise-grade capability for building production SaaS applications. @E is now an addressable role-agent with comprehensive operating guide, SaaS development standards, testing infrastructure, CI/CD workflows, and human handoff protocols.
 

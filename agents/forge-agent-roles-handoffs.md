@@ -2,28 +2,42 @@
 
 **Quick Reference for Multi-Agent Coordination**
 
-**Version:** 1.0  
-**Status:** Canonical Reference  
+**Version:** 1.1
+**Status:** Canonical Reference
 **For:** Jordan's Project Genesis Knowledge Base
+
+> **Role Addressing (v1.3):** FORGE now has 8 real role-agents with explicit `@role` addressing. Pre-FORGE agents (@A/@B/@C) handle intake through commitment. FORGE lifecycle agents (@F/@O/@R/@G/@E) handle the build lifecycle. All transitions route through @G. See Decision-005.
 
 ---
 
 ## The Team
 
-FORGE defines five standard roles. In Knight Ventures projects, these map to specific agents:
+FORGE defines 8 role-agents across two lifecycles:
 
-| Role | Agent | Primary Phase | Function |
-|------|-------|---------------|----------|
-| **Human Lead** | Leo | All phases | Direction, greenlight, final authority |
-| **Strategist** | Product Strategist | Frame | Product framing, Product Intent Packet |
-| **Architect** | project-architect (local) | Orchestrate/Refine | Constitutional documents, planning |
-| **Governor** | Ops Agent | Govern | State ownership, coordination, validation, gating |
-| **Execution** | @E (E agents/humans) | Execute | Code production per task briefs |
+### Pre-FORGE Agents (A.B.C)
+
+| Role | Agent | Addressing | Function |
+|------|-------|------------|----------|
+| **@A** | Acquire | `/forge-a` | Scaffold workspace, intake, organize |
+| **@B** | Brief (conditional) | `/forge-b` | Sensemaking, options, assumptions |
+| **@C** | Commit | `/forge-c` | Decision gate, FORGE unlock |
+
+### FORGE Lifecycle Agents (F.O.R.G.E)
+
+| Role | Agent | Addressing | Function |
+|------|-------|------------|----------|
+| **Human Lead** | Leo | Direct | Direction, greenlight, final authority |
+| **@F** | Frame (Product Strategist) | `/forge-f` | Product framing, Product Intent Packet |
+| **@O** | Orchestrate (Project Architect) | `/forge-o` | Architecture, planning, phases |
+| **@R** | Refine (spec-writer/recon) | `/forge-r` | Review, coherence, conflict detection |
+| **@G** | Govern (Router) | `/forge-g` | Routing, policy, gating, coordination |
+| **@E** | Execute | `/forge-e` | Code production per handoff packets |
 
 **Note on Tools vs Roles:**
 - **CC (Claude Code)** is infrastructure/runtime used by agents, not a FORGE role
 - **Cursor** was the historical E analog; now E represents any execution capability
-- FORGE roles are **F/O/R/G/E**, not tool names
+- All 8 agents are real role-agents with contracts, boundaries, and STOP conditions
+- @F/@O/@R MAY reuse existing implementations internally in Phase 1
 - See `docs/evolution/cc-to-roles-evolution.md` for details
 
 **Supporting Roles:**

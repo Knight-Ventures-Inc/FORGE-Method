@@ -2,11 +2,13 @@
 
 # FORGE Execution Lane (E) Operating Guide
 
-**Version:** 1.0
+**Version:** 1.1
 **Status:** Canonical Reference
 **Role:** @E (Execution Agent/Human)
 **Phase:** Execute (E)
 **For:** Enterprise-grade SaaS implementation
+
+> **Role Addressing (v1.3):** @E is invoked via `@E`, `/forge-e`, or natural language routing through @G. @E is tier-aware: it reads `FORGE-AUTONOMY.yml` for routing policy. In Tier 0, @E receives handoffs only via explicit human invocation. In Tier 1+, @G may coordinate handoffs with human approval. See Decision-005 for the full autonomy model.
 
 ---
 

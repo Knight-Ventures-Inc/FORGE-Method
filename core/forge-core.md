@@ -79,9 +79,9 @@ Refine is complete when implementation requires zero architectural decisions —
 
 ### G — Govern
 
-**Purpose:** Coordinate execution state, validate outputs, and enforce human-in-the-loop gates.
+**Purpose:** Coordinate execution state, validate outputs, enforce human-in-the-loop gates, and route cross-lane transitions.
 
-**Phase Owner:** Ops Agent
+**Phase Owner:** @G (Govern Agent — canonical router)
 
 Govern owns:
 - **Build Plan** — Canonical execution strategy derived from Architecture Packet
@@ -89,19 +89,26 @@ Govern owns:
 - **Quality gates** — What must pass before merge (Sacred Four)
 - **Approval checkpoints** — Human decisions at defined gates
 - **Handoff protocols** — How work transfers between G and E
+- **Routing** — All cross-lane transitions route through @G (v1.3)
+- **Policy enforcement** — FORGE-AUTONOMY.yml tier evaluation (v1.3)
+- **Event logging** — Append-only router event log at `docs/router-events/` (v1.3)
 
-The Ops Agent:
+The @G Agent:
 - Decomposes Architecture Packets into phased Build Plans
 - Coordinates Execution (E) agents or humans
 - Validates outputs against specifications
 - Requests human approval at checkpoints
 - Bridges continuously between planning and execution
+- Routes all cross-lane transitions per autonomy tier (v1.3)
+- Logs all transition events for auditability (v1.3)
 
 Govern is complete when the human can ask "What's next?" and get a coherent answer from the execution state.
 
 **Important:** CC (Claude Code) is infrastructure, not a FORGE role. FORGE roles are F/O/R/G/E. See `docs/evolution/cc-to-roles-evolution.md`.
 
-See `agents/forge-ops-agent-guide.md` for full specification.
+**Autonomy Tiers (v1.3):** @G evaluates `FORGE-AUTONOMY.yml` to determine routing behavior. Tier 0 (default): @G refuses transitions, instructs human. Tier 1: @G asks human approval. Tiers 2-3 deferred to future MAJOR release. See Decision-005.
+
+See `agents/forge-g-operating-guide.md` for full specification.
 
 **[UNIVERSAL]**
 
@@ -134,6 +141,8 @@ Each agent has a defined role, authority boundary, and handoff protocol. Agents 
 ### Law 3: Human Greenlight Required
 
 No phase advances without explicit human approval. The human-in-the-loop is a feature, not a bottleneck.
+
+**Autonomy Compatibility (v1.3):** Tiers 0-1 are fully compatible with Law 3. In Tier 0, humans invoke all agents directly. In Tier 1, @G proposes transitions but humans approve before dispatch. Future Tiers 2-3 will require a separate MAJOR decision to ensure Law 3 compatibility. See Decision-005.
 
 ### Law 4: One Canonical Record
 
